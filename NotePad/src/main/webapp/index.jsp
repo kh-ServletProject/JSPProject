@@ -10,5 +10,6 @@
  <h1>이거슨 메인페이지</h1>
  
   <input type="text" placeholder="안농하세요"> <!-- 지현 -->
+  
 </body>
 </html>
