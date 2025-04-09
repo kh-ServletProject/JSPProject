@@ -7,14 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
- <h1>이거슨 메인페이지</h1>
-
- 
- <h1>얄리얄리얄랴셩 성원</h1>
-
-
- 
-  <input type="text" placeholder="안농하세요"> <!-- 지현 -->
+	<div>
+		<h1>이김강장 메모장</h1>
+			<div>
+			<form action="/login" method="post">
+				<div><span>ID : <input type="text" name="memberId" required> </span> </div>
+				<div><span>PW : <input type="password" name=memberPw" required></span> </div>
+				<div><button>로그인</button> <button>회원가입</button></div>
+			</form>
+		</div>
+	</div>
+	 
   
 
  
