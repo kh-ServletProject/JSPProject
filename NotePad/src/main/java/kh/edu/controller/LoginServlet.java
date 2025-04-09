@@ -1,5 +1,5 @@
 package kh.edu.controller;
 
-public class testController {
+public class LoginServlet {
 
 }
