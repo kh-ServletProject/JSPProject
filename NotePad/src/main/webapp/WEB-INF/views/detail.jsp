@@ -15,7 +15,7 @@
 
 	<h1>${memo.memoTitle}</h1>
 
-	<div class="content" style="border: 1px solid gray;">${memo.memoContent}</div>
+	<div class="content">${memo.memoContent}</div>
 
 	<div class="btn-box">
 		<div>
