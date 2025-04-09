@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet{
 
 		try {
 			// index.jsp에서 넘어온 memberId, memberPw 받아줌
-			int memberId = Integer.parseInt(req.getParameter("memberId"));
+			String memberId = req.getParameter("memberId");
 			String memberPw = req.getParameter("memberPw");
 			
 			// 서비스 객체 생성
@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet{
 			
 			if(loginMem == null) { // 아이디와 비밀번호가 일치하는 회원이 없을 경우
 				
+				// 다시 초기 화면으로 forward
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 				return;
 			}

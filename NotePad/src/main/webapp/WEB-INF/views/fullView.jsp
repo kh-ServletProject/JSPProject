@@ -1,0 +1,38 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>${ member.memberName }님의 메모장</title>
+</head>
+<body>
+
+	<div>
+		<table border=1>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>생성 날짜</th>
+					<th>수정 날짜</th>					
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
+					<tr>
+						<td>${ memo.memoNo }</td>
+						<td>${ memo.memoTitle }</td>
+						<td>${ memo.writeDate }</td>
+						<td>${ memo.updateDate }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

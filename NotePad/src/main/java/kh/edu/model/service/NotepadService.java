@@ -13,13 +13,13 @@ public interface NotepadService {
 	 * @return Member(로그인한 회원), null
 	 * @throws Exception
 	 */
-	Member loginMember(int memberId, String memberPw) throws Exception;
+	Member loginMember(String memberId, String memberPw) throws Exception;
 
 	/** 메모 리스트 조회
 	 * @param memberId
 	 * @return List<>(현재 회원의 메모 리스트), null
 	 * @throws Exception
 	 */
-	List<Memo> memberMemoList(int memberId) throws Exception;
+	List<Memo> memberMemoList(int memberNo) throws Exception;
 
 }

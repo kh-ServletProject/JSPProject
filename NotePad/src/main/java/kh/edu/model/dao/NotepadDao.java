@@ -8,7 +8,7 @@ import kh.edu.model.dto.Memo;
 
 public interface NotepadDao {
 
-	Member loginMember(Connection conn, int memberId, String memberPw) throws Exception;
+	Member loginMember(Connection conn, String memberId, String memberPw) throws Exception;
 
 	List<Memo> memberMemoList(Connection conn, int memberNo) throws Exception;
 

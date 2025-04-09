@@ -1,14 +1,13 @@
 package kh.edu.model.dao;
 
-import static kh.edu.common.JDBCTemplate.close;
+import static kh.edu.common.JDBCTemplate.*;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.InvalidPropertiesFormatException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -20,7 +19,7 @@ public class NotepadDAOImpl implements NotepadDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	Properties prop = null;
+	Properties prop = new Properties();
 	
 	public NotepadDAOImpl() {
 
@@ -37,25 +36,66 @@ public class NotepadDAOImpl implements NotepadDao {
 	}
 	
 	@Override
-	public Member loginMember(Connection conn, int memberId, String memberPw) throws Exception {
+	public Member loginMember(Connection conn, String memberId, String memberPw) throws Exception {
 
 		Member member = null;
 		
 		try {
+			String query = prop.getProperty("loginMember");
 			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPw);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = Member.builder()
+						.memberNo(rs.getInt("MEMBER_NO"))
+						.memberId(memberId)
+						.memberPw(memberPw)
+						.memberName(rs.getString("MEMBER_NAME"))
+						.build();
+			}
+						
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return member;
+	}
+
+	@Override
+	public List<Memo> memberMemoList(Connection conn, int memberNo) throws Exception {
+
+		List<Memo> memoList = new ArrayList<>();
+		
+		try {
+			String query = prop.getProperty("memberMemoList");
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				memoList.add(Memo.builder()
+							.memoNo(rs.getInt(1))
+							.memoTitle(rs.getString(2))
+							.memoContent(rs.getString(3))
+							.writeDate(rs.getString(4))
+							.updateDate(rs.getString(5))
+							.memberNo(memberNo)
+							.build());
+			}
 			
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
 		
-		return null;
-	}
-
-	@Override
-	public List<Memo> memberMemoList(Connection conn, int memberNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return memoList;
 	}
 
 }

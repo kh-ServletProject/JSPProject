@@ -14,7 +14,7 @@ public class NotepadServiceImpl implements NotepadService {
 	NotepadDao dao = new NotepadDAOImpl();
 	
 	@Override
-	public Member loginMember(int memberId, String memberPw) throws Exception {
+	public Member loginMember(String memberId, String memberPw) throws Exception {
 
 		Connection conn = getConnection();
 		
