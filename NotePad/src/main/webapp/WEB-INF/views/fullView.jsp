@@ -25,7 +25,7 @@
 				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
 					<tr>
 						<td>${ memo.memoNo }</td>
-						<td>${ memo.memoTitle }</td>
+						<td><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
 						<td>${ memo.writeDate }</td>
 						<td>${ memo.updateDate }</td>
 					</tr>
