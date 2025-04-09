@@ -4,6 +4,13 @@
   
   <!--  sql 작성  -->
   
+  <!-- 디테일 목록 조회 -->
+  <entry key="memoDetail">
+  	SELECT MEMO_NO, MEMO_TITLE, MEMO_CONTENT, WRITE_DATE, UPDATE_DATE, MEMBER_NO
+  	FROM MEMO
+  	WHERE MEMO_NO = ?
+  </entry>
+  
  
 
 
