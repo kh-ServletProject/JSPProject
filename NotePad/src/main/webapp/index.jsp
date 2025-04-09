@@ -8,6 +8,11 @@
 </head>
 <body>
  <h1>이거슨 메인페이지</h1>
- 	<p>git 변경사항 테스트 - 미애</p>
+
+ 
+  <input type="text" placeholder="안농하세요"> <!-- 지현 -->
+  
+
+ 
 </body>
 </html>
