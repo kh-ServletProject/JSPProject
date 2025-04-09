@@ -4,7 +4,11 @@
   
   <!--  sql 작성  -->
   
- 
+ <entry key ="signUp">
+ 	INSERT INTO MEMBER VALUES(
+    SEQ_MEMBER.NEXTVAL, ? ,? ,?
+     );
+ </entry>
 
 
 </properties>
