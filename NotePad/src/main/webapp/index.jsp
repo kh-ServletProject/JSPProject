@@ -13,7 +13,13 @@
 			<form action="/login" method="post">
 				<div><span>ID : <input type="text" name="memberId" required> </span> </div>
 				<div><span>PW : <input type="password" name=memberPw" required></span> </div>
-				<div><button>로그인</button> <button>회원가입</button></div>
+				<div><button>로그인</button></div>
+			</form>
+			
+			<form action="/join" method="post">
+			<div>
+			<button>회원가입</button>
+			</div>
 			</form>
 		</div>
 	</div>
