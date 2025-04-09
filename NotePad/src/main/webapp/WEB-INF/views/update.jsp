@@ -13,11 +13,10 @@
 			<span>제목 : <input type="text" name="title" value="${memo.memoTitle}"></span> <br>
 		</div>
 		<div>
-			<textarea rows="3" cols="50" name="detail" placeholder="내용을 입력하세요">${memo.memoContent}</textarea>
+			<textarea rows="3" cols="50" name="content" placeholder="내용을 입력하세요">${memo.memoContent}</textarea>
 		</div>
 		<input type="hidden" name="memoNo" value="${param.memoNo}">
 		<button>수정하기</button>
 	</form>
-	<script src="/WEB-INF/resources/test.js"></script>
 </body>
 </html>

@@ -1,14 +1,14 @@
 package kh.edu.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import kh.edu.model.dto.Member;
+import kh.edu.common.JDBCTemplate;
 import kh.edu.model.dto.Memo;
 import kh.edu.model.service.NotepadService;
 import kh.edu.model.service.NotepadServiceImpl;
@@ -43,11 +43,11 @@ public class UpdateMemo extends HttpServlet {
 						.updateDate("2025-04-09")
 						.memberNo(1).build();
 
-//			if(memo == null) {
-//				// 메인 페이지 redirect
-//				resp.sendRedirect("/");
-//				return;
-//			}
+			if(memo == null) {
+				// 메인 페이지 redirect
+				resp.sendRedirect("/");
+				return;
+			}
 			
 			// request scope 에 memo 객체 세팅
 			req.setAttribute("memo", memo);
@@ -67,32 +67,32 @@ public class UpdateMemo extends HttpServlet {
 		try {
 			// 전달받은 파라미터 얻어오기(제목, 상세내용, todoNo)
 			String title = req.getParameter("title");
-			String detail = req.getParameter("detail");
-			int todoNo = Integer.parseInt(req.getParameter("memoNo"));
+			String content = req.getParameter("content");
+			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
 			
 			NotepadService service = new NotepadServiceImpl();
-			//int result = service.memoUpdate(todoNo, title, detail);
+			int result = service.memoUpdate(memoNo, title, content);
 			
 			// 수정 성공 시
 			// 상세 조회 페이지로 redirect
 			// "수정되었습니다" message를 alert출력
 			
 			// 수정 실패 시
-			// 수정 화면어로 redirect
+			// 수정 화면으로 redirect
 			// "수정 실패" messagae를 alert 출력
 			String url = null;
 			String message = null;
 			
-//			if(result > 0) { // 성공
-//				url = "/memo/detail?memoNo=" + todoNo;
-//				message = "수정되었습니다!";
-//			} else { //실패
-//				
-//				url = "/memo/update?memoNo=" + todoNo;
-//				message = "수정 실패ㅠ";
-//				
-//			}
-//			
+			if(result > 0) { // 성공
+				url = "/memo/detail?memoNo=" + memoNo;
+				message = "수정되었습니다!";
+			} else { //실패
+				
+				url = "/memo/update?memoNo=" + memoNo;
+				message = "수정 실패ㅠ";
+				
+			}
+			
 			// session 객체에 속성 추가
 			req.getSession().setAttribute("message", message);
 			resp.sendRedirect(url);
