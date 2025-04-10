@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-  
-  <!--  sql 작성  -->
-  
-  
-  <!-- 회원가입  -->
- <entry key ="signUp">
- 	INSERT INTO MEMBER VALUES(
-    SEQ_MEMBER.NEXTVAL, ?, ?, ?
-     )
- </entry>
-	
+
+	<!-- sql 작성 -->
+
+
+	<!-- 회원가입 -->
+	<entry key="signUp">
+		INSERT INTO MEMBER VALUES(
+		SEQ_MEMBER.NEXTVAL, ?, ?, ?
+		)
+	</entry>
+
 	<!-- 로그인 회원 조회 -->
 	<entry key="loginMember">
 		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME
@@ -23,16 +23,18 @@
 	<entry key="memberMemoList">
 		SELECT MEMO_NO, MEMO_TITLE, MEMO_CONTENT,
 		TO_CHAR(WRITE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS WRITE_DATE,
-		TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO
+		TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO, DELETED
 		FROM MEMO
 		WHERE MEMBER_NO = ?
+		AND DELETED = 'n'
 	</entry>
   
  <!--  메모 수정  -->
-<entry key="todoUpdate">
+<entry key="memoUpdate">
 	UPDATE MEMO
 	SET MEMO_TITLE = ?,
-	MEMO_CONTENT =?
+	MEMO_CONTENT =?,
+	UPDATE_DATE = SYSDATE
 	WHERE MEMO_NO = ?
 </entry>
   
@@ -43,6 +45,26 @@
   	WHERE MEMO_NO = ?
   </entry>
   
+  <entry key="memoDelete">
+  	DELETE FROM MEMO
+  	WHERE MEMO_NO = ?
+  </entry>
+  
+  <entry key="memoBin">
+  	SELECT MEMO_NO, MEMO_TITLE, MEMO_CONTENT,
+	TO_CHAR(WRITE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS WRITE_DATE,
+	TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO
+	FROM MEMO
+	WHERE MEMBER_NO = ?
+	AND DELETED = 'y'
+  </entry>
+  
+  <entry key="goBin">
+		UPDATE MEMO
+		SET DELETED = 'y'
+		WHERE MEMO_NO = ?
+	</entry>
+
   <!-- 중복하는ID 조회 -->
   <entry key="findId">
   	SELECT COUNT(*)

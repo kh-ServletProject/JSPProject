@@ -210,9 +210,10 @@ public class NotepadDAOImpl implements NotepadDao {
 			close(rs);
 			close(pstmt);
 		}
+  
+       return memoList;
+}
 
-		return memoList;
-	}
 
 	public int findId(Connection conn, String memberId) throws Exception {
 

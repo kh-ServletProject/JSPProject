@@ -7,7 +7,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${ member.memberName }님의휴지통</title>
+
+<title>${ member.memberName }님의 휴지통</title>
+<link rel ="stylesheet" href="/resources/css/detail.css">
+
 </head>
 <body>
 
@@ -28,6 +31,7 @@
 			<tbody>
 				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
 				<c:if test="${ memo.deleted.toString() == 'y'}">
+
 					<tr>
 						<td>${ memo.memoNo }</td>
 						<td>${ memo.memoTitle }</td>
@@ -46,9 +50,9 @@
 		<button type="button" id="goMemoList">목록으로</button>
 	</div>
 
-	<div></div>
-
+  <script src="/resources/js/all.js"></script>
 	<script src="/resources/js/detail.js"></script>
 	<script src="/resources/js/bin.js"></script>
+
 </body>
 </html>
