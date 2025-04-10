@@ -79,8 +79,8 @@ public class NotepadServiceImpl implements NotepadService {
 		
 		int result = dao.memoDelete(conn, memoNo);
 		
-		if(result > 0) JDBCTemplate.commit(conn);
-		else		   JDBCTemplate.rollback(conn);
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
 		
 		close(conn);
 		

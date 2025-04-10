@@ -1,12 +1,5 @@
 package kh.edu.model.service;
 
-<<<<<<< HEAD
-
-public interface NotepadService {
-
-	int signUp(String memberId, String memberPw, String memberName) throws Exception;
-		// 회원가입하는 메서드입니다.
-=======
 import java.util.List;
 import kh.edu.model.dto.Member;
 import kh.edu.model.dto.Memo;
@@ -33,7 +26,7 @@ public interface NotepadService {
 	 */
 	List<Memo> memberMemoList(int memberNo) throws Exception;
 
-  int memoUpdate(int memoNo, String title, String content) throws Exception;
+	int memoUpdate(int memoNo, String title, String content) throws Exception;
+	int signUp(String memberId, String memberPw, String memberName) throws Exception;
 
->>>>>>> origin/development
 }
