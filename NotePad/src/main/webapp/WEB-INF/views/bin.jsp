@@ -1,24 +1,28 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${ member.memberName }님의 휴지통</title>
+<title>${ member.memberName }님의휴지통</title>
 </head>
 <body>
 
 	<div>
+		<button type="button" id="allselect">전체선택</button>
+	</div>
+	<div>
 		<table border=1>
 			<thead>
 				<tr>
+					<th>선택</th>
 					<th>번호</th>
 					<th>제목</th>
 					<th>생성 날짜</th>
-					<th>수정 날짜</th>					
+					<th>수정 날짜</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,14 +36,18 @@
 					</tr>
 				</c:if>
 				</c:forEach>
+				<button id="deleteBtn">삭제</button>
 			</tbody>
 		</table>
 	</div>
-	
+
 	<div>
-	<button id="deleteBtn">삭제</button>
+		<button type="button" id="goMemoList">목록으로</button>
 	</div>
-	
+
+	<div></div>
+
 	<script src="/resources/js/detail.js"></script>
+	<script src="/resources/js/bin.js"></script>
 </body>
 </html>

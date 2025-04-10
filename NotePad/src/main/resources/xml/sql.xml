@@ -45,8 +45,7 @@
   </entry>
   
   <entry key="memoDelete">
-  	DELETE FROM MEMO
-  	WHERE MEMO_NO = ?
+  	DELETE FROM MEMO WHERE MEMO_NO = ?
   </entry>
   
   <entry key="memoBin">
