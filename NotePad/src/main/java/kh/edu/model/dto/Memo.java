@@ -7,8 +7,13 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+<<<<<<< HEAD
+@AllArgsConstructor
+@NoArgsConstructor
+=======
 @NoArgsConstructor
 @AllArgsConstructor
+>>>>>>> origin/development
 public class Memo {
 	private int memoNo;
 	private String memoTitle;

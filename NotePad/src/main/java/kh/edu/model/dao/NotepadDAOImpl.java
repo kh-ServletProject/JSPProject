@@ -1,7 +1,6 @@
 package kh.edu.model.dao;
 
 import static kh.edu.common.JDBCTemplate.*;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -172,6 +171,30 @@ public class NotepadDAOImpl implements NotepadDao {
 		} finally {
 			close(pstmt);
 		}
+		
+		return result;
+	}
+	
+	@Override
+	public int signUp(String memberId, String memberPw, String memberName, Connection conn) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("signUp");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPw);
+			pstmt.setString(3, memberName);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			
+			close(pstmt);
+		}
+		
 		
 		return result;
 	}

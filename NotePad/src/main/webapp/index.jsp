@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -18,10 +19,11 @@
 			</form>
 		</div>
 	</div>
-	<button>회원가입</button>
+	<button id="signupBtn">회원가입</button>
   
 
  
 	<script src="/resources/js/test.js"></script>
 </body>
 </html>
+

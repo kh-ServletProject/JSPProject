@@ -1,6 +1,13 @@
 package kh.edu.model.dao;
 
 import java.sql.Connection;
+<<<<<<< HEAD
+
+public interface NotepadDao {
+
+	int signUp(String memberId, String memberPw, String memberName, Connection conn)throws Exception;
+	//회원가입하는 메서드
+=======
 import java.util.List;
 import kh.edu.model.dto.Member;
 import kh.edu.model.dto.Memo;
@@ -18,5 +25,6 @@ public interface NotepadDao {
 
 	int memoDelete(Connection conn, int memoNo) throws Exception;
 
+>>>>>>> origin/development
 
 }
