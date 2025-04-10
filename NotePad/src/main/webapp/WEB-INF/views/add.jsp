@@ -37,6 +37,6 @@
 				<c:remove var="message" scope="session"/>
 			</c:if>
 		
-			<script src="/resources/js/all.js"></script>
+			
 		</body>
 		</html>

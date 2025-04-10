@@ -11,13 +11,17 @@ goMemoList.addEventListener("click", () => {
 });
 
 goBinBtn.addEventListener("click", () => {
-
-	location.href = "/memo/gobin?memoNo=" + memoNo;
-
+	
+			location.href = "/memo/gobin?memoNo=" + memoNo;
+	
 });
 
 
 updateBtn.addEventListener("click", () => {
-	location.href = "/memo/update?memoNo=" + memoNo;
+	
+			location.href = "/memo/update?memoNo=" + memoNo;
+	
+			
+	
 });
 

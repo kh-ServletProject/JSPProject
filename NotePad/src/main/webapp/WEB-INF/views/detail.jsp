@@ -37,7 +37,7 @@
 	</c:if>
 
 </div>
-<script src="/resources/js/all.js"></script>
+
 <script src="/resources/js/detail.js"></script>
 </body>
 </html>

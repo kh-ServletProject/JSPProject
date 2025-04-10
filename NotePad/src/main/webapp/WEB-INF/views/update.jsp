@@ -11,7 +11,7 @@
 <link rel ="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
-	<h2>메모 수정하기</h2>
+	
 	<form action="/memo/update" method="post" id="updateForm">
 		<div>
 			<span>제목 : <input type="text" name="title" value="${memo.memoTitle}"></span> <br>
@@ -22,6 +22,7 @@
 		<input type="hidden" name="memoNo" value="${param.memoNo}">
 		<div style="text-align: right;">
 			<button>수정하기</button>
+			<button type="button" id="goMemoList">목록으로</button>
 		</div>
 	</form>
 	

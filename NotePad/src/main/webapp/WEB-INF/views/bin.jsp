@@ -101,7 +101,6 @@
 		<button type="button" id="goMemoList">목록으로</button>
 	</div>
 
-  <script src="/resources/js/all.js"></script>
 	<script src="/resources/js/detail.js"></script>
 	<script src="/resources/js/bin.js"></script>
 
