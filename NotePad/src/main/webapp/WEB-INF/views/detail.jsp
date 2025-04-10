@@ -11,7 +11,7 @@
 <link rel ="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
-	<div id="viewContainer">
+	<div id="ditailContainer">
 	<h3><span class="memberName">${sessionScope.member.memberName} 님의 메모상세</span></h3>
 
 	<h1><span class="memoTitle">${memo.memoTitle}</span></h1>

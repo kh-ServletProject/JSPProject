@@ -14,11 +14,11 @@ addMemo.addEventListener("click", ()=>{
 });
 multiSelect.addEventListener("click", () => {
 	isVisible = !isVisible;
-  selectAllMemo.style.display = isVisible ? "inline-block" : "none";
-  multiBin.style.display = isVisible ? "inline-block" : "none";
+  selectAllMemo.style.display = isVisible ? "flex" : "none";
+  multiBin.style.display = isVisible ? "flex" : "none";
 
   checkboxes.forEach(cb => {
-    cb.style.display = isVisible ? "inline-block" : "none";
+    cb.style.display = isVisible ? "flex" : "none";
     cb.checked = isVisible;
   });
 
@@ -62,3 +62,4 @@ searchInput.addEventListener("keyup", (e) => {
   }
 
 });
+

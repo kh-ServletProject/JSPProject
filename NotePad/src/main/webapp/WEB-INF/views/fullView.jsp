@@ -21,7 +21,7 @@
 		</div>
 		<div id="content">
 
-			<table border=1>
+			<table border=1 id="hidetr">
 				<thead>
 					<tr>
 						<th id="selectAllMemo"  style="display:none;">선택</th>
@@ -39,22 +39,22 @@
 					<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
 
 					<c:if test="${memo.deleted.toString() == 'n'}">
-						<tr>
+						<tr id="hidetr">
 							<td class="multiCheckbox" style="display:none;"><input type="checkbox" name="memoNo" value="${memo.memoNo}" ></td>
-							<td>${ memo.memoNo }</td>
+							<td >${ memo.memoNo }</td>
 							<td class="title"><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
 							<td>${ memo.writeDate }</td>
 							<td>${ memo.updateDate }</td>
 						</tr>
 						</c:if>
 					</c:forEach>
-         			<button id="multiBin" style="display:none;">휴지통에 버리기</button>
+         			<button id="multiBin" style="display:none;">휴지통에버리기</button>
           		</form>
           	<button id="multiSelect">여러 항목 삭제</button>
          	 
 					<form action="/memo/bin" method="post">
 						<div>
-							<button id="bin">휴지통 보기</button>
+							<button id="bin"></button>
 						</div>
 					</form>
           
@@ -80,12 +80,29 @@
 		
 	</div>
 
-	<button id="addMemo">MEMO추가</button>
+	
 
 	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
 		</script>
+
+<script>
+
+document.getElementById('multiSelect').addEventListener('click', function () {
+ 
+  document.querySelectorAll('.multiCheckbox, #multiBin, #selectAllMemo').forEach(el => {
+    el.style.display = 'table-cell'; 
+  });
+  
+ 
+  document.querySelectorAll('.multiCheckbox').forEach(el => {
+    el.style.textAlign = 'center'; 
+    el.style.verticalAlign = 'middle'; 
+  });
+});
+</script>
+		
 
 		<c:remove var="message" scope="session" />
 	</c:if>

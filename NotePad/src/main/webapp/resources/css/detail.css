@@ -1,69 +1,397 @@
-
 body, h1, h2, h3, p, ul, ol, li, button, input, textarea {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
 }
 
 body {
-  background-color: #eaeaea;
-  color: #333;
+	background-color: #eaeaea;
+	color: #333;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
 button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: #3c8dbc;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: #3c8dbc;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #357ca5;
+	background-color: #357ca5;
 }
-
 
 div {
-  max-width: 800px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	max-width: 800px;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 form div {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 form input, form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
 }
 
 form textarea {
-  resize: none;
+	resize: none;
+}
+
+/* Table Styles */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #fff;
+}
+
+table thead {
+	background-color: #3c8dbc;
+	color: white;
+}
+
+table th, table td {
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+table tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+h1 {
+	color: #3c8dbc;
+	font-size: 24px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#viewContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 20px;
+	min-height: 600px
+}
+
+#info {
+	flex: 1;
+	max-width: 30%;
+	background-color: #f9f9f9; 
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+#search input {
+	padding: 10px;
+	width: calc(100% - 20px);
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+#addMemo {
+	position: absolute;
+	bottom: 20px; /* 아래에서 20px */
+	right: 20px; /* 오른쪽에서 20px */
+	background-color: #ff5722;
+	color: white;
+	font-size: 30px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#addMemo:hover {
+	background-color: #e64a19;
+}
+
+.memberLogout button {
+	background-color: #d9534f;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 1.5;
+	padding: 5px 16px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.memberLogout button:hover {
+	background-color: #791b18;
+}
+
+#viewContainer {
+	position: relative; /* 자식 요소를 기준으로 위치 설정 */
+}
+
+#signupContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+/* 회원가입 버튼 스타일 */
+#signupBtn {
+	background-color: #28a745;
+	color: white;
+	padding: 15px 30px;
+	font-size: 18px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+#signupBtn:hover {
+	background-color: #218838;
+}
+
+#buttonGroup {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+  gap: 10px;
+}
+
+#loginBtn {
+	background-color: #3c8dbc;
+	color: white;
+	padding: 15px 30px;
+	font-size: 18px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+#homeBtn {
+	background-color: #3c8dbc;
+	color: white;
+}
+
+#formContainer {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Form Group 스타일 */
+.form-group {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group label {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+/* Button 스타일 */
+#submitBtn {
+	background-color: #3c8dbc; /* 파란색 배경 */
+	color: white;
+	padding: 12px 20px;
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 100%;
+}
+
+#submitBtn:hover {
+	background-color: #357ca5; /* hover 시 진한 파란색 */
+}
+/* 휴지통 버튼 스타일 */
+#bin {
+	position: absolute;
+	bottom: 20px; /* 아래에서 20px */
+	right: 100px; /* 오른쪽에서 100px (addMemo 버튼과 간격 유지) */
+	background-color: #6c757d; /* 회색 배경 */
+	color: white;
+	font-size: 30px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#bin:hover {
+	background-color: #5a6268; /* hover 시 진한 회색 */
+}
+
+td a {
+	color: #0000ff; /* 파란색 글씨 */
+	text-decoration: underline; /* 밑줄 추가 */
+}
+
+td a:hover {
+	color: #000099; /* hover 시 더 진한 파란색 */
+	text-decoration: none; /* hover 시 밑줄 제거 (선택 사항) */
+}
+
+/* "님의 메모상세" 스타일 */
+.memberName {
+	color: #3c8dbc; /* 파란색 글씨 */
+	font-size: 26px; /* 글씨 크기 */
+	font-weight: bold; /* 굵게 */
+	margin-bottom: 12px; /* 아래 여백 */
+	display: block; /* 블록 요소로 설정 */
+	line-height: 1.5;
+}
+
+/* 메모 제목 스타일 */
+.memoTitle {
+	color: #000000; /* 주황색 글씨 */
+	font-size: 24px; /* 글씨 크기 */
+	font-weight: bold; /* 굵게 */
+	margin-top: 10px; /* 위 여백 */
+}
+
+.content {
+  font-size: 18px; 
+	line-height: 1.6; 
+	color: #333; 
+	padding: 15px; 
+	background-color: #f9f9f9; 
+	border-radius: 8px; 
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+#mainContent {
+	flex: 3;
+	max-width: 70%;
+	background-color: #ffffff;
+	padding: 20px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+
+#search {
+	margin-bottom: 20px;
+}
+
+#content table {
+	width: 100%; /* 테이블 너비를 100%로 설정 */
+	border-collapse: collapse; /* 테이블 경계선 제거 */
+}
+
+#content th, #content td {
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+
+#content th {
+	background-color: #3c8dbc;
+	color: white;
+}
+
+.error {
+	color: red;
+	font-size: 0.8em;
+}
+#viewContainer h3, #viewContainer h1, #viewContainer .content {
+	text-align: center; /* 텍스트 가운데 정렬 */
+}
+#ditailContainer{
+	display: flex;
+	flex-direction: column; /* 기본값: 세로 방향 */
+	align-items: center;
+	gap: 20px;
+	min-height: 600px;
+	padding: 20px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#multiBin {
+	margin-right: 5px;
+}
+
+th {
+	text-decoration: none; /* 기본 밑줄 제거 */
+}
+
+#selectAllMemo {
+	text-align: center;
+}
+
+.multiCheckbox {
+  text-align: center; 
+  vertical-align: middle; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* Checkbox 중앙 정렬 */
+.multiCheckbox input[type="checkbox"] {
+  display: flex;
+  margin: auto; /* 가로 가운데 정렬 */
+	border-collapse: collapse;
+}
+
+/* 선택 부분 테두리 문제 해결 */
+#content th, #content td {
+  border: 1px solid #ddd; /* 모든 셀에 동일한 테두리 적용 */
+	border-collapse: collapse;
+}
+
+#content th#selectAllMemo {
+	text-align: center; 
 }
 
 /* Table Styles */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* 셀 간의 공백 제거 */
   background-color: #fff;
 }
 
@@ -75,7 +403,8 @@ table thead {
 table th, table td {
   padding: 10px;
   text-align: left;
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; /* 모든 셀에 동일한 테두리 적용 */
+	vertical-align: middle;
 }
 
 table tr:nth-child(even) {
@@ -83,255 +412,15 @@ table tr:nth-child(even) {
 }
 
 
-h1 {
-  color: #3c8dbc;
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#viewContainer {
-  display: flex; 
-  justify-content: space-between; 
-  align-items: flex-start; 
-  gap: 20px; 
-  height: 600px;
-}
-
-#info {
-  flex: 1; 
-  max-width: 30%; 
-  background-color: #f9f9f9; /
-  padding: 20px; 
-  border-radius: 8px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  text-align: center; 
-}
 
 
-#search input {
-  padding: 10px;
-  width: calc(100% - 20px);
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
+/* 선택 헤더 */
+#selectAllMemo {
+  text-align: center; /* 텍스트 가운데 정렬 */
 }
-
-
-#addMemo {
-  position: absolute;
-  bottom: 20px; /* 아래에서 20px */
-  right: 20px;  /* 오른쪽에서 20px */
-  background-color: #ff5722;
-  color: white;
-  font-size: 30px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#hidetr{
+	border-collapse: collapse;
 }
-
-#addMemo:hover {
-  background-color: #e64a19;
-}
-
-.memberLogout button {
-  background-color: #d9534f;
-  font-size: 20px; 
-  font-weight: bold; 
-  line-height: 1.5; 
-  padding: 5px 16px; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  transition: background-color 0.3s; 
-}
-
-.memberLogout button:hover {
-  background-color: #791b18;
- 
-}
-
-
-
-#viewContainer {
-  position: relative; /* 자식 요소를 기준으로 위치 설정 */
-}
-
-#signupContainer {
-  display: flex;           
-  justify-content: center; 
-  align-items: center;     
-  margin-top: 20px;        
-}
-
-/* 회원가입 버튼 스타일 */
-#signupBtn {
-  background-color: #28a745; 
-  color: white;             
-  padding: 15px 30px;       
-  font-size: 18px;        
-  border: none;             
-  border-radius: 5px;       
-  cursor: pointer;          
-  transition: background-color 0.3s; 
-}
-
-#signupBtn:hover {
-  background-color: #218838; 
-}
-#buttonGroup {
-  display: flex;           
-  justify-content: space-between; 
-  margin-top: 20px;       
-}
-#loginBtn {
-  background-color: #3c8dbc; 
-  color: white;             
-  padding: 15px 30px;       
-  font-size: 18px;          
-  border: none;            
-  border-radius: 5px;     
-  cursor: pointer;          
-  transition: background-color 0.3s; 
-}
-#homeBtn {
-  background-color: #3c8dbc; 
-  color: white; 
-}
-#formContainer {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-/* Form Group 스타일 */
-.form-group {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-/* Button 스타일 */
-#submitBtn {
-  background-color: #3c8dbc; /* 파란색 배경 */
-  color: white;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100%;
-}
-
-#submitBtn:hover {
-  background-color: #357ca5; /* hover 시 진한 파란색 */
-}
-/* 휴지통 버튼 스타일 */
-#bin {
-  position: absolute;
-  bottom: 20px; /* 아래에서 20px */
-  right: 100px;  /* 오른쪽에서 100px (addMemo 버튼과 간격 유지) */
-  background-color: #6c757d; /* 회색 배경 */
-  color: white;
-  font-size: 30px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#bin:hover {
-  background-color: #5a6268; /* hover 시 진한 회색 */
-}
-td a {
-  color: #0000ff; /* 파란색 글씨 */
-  text-decoration: underline; /* 밑줄 추가 */
-}
-
-td a:hover {
-  color: #000099; /* hover 시 더 진한 파란색 */
-  text-decoration: none; /* hover 시 밑줄 제거 (선택 사항) */
-}
-
-/* "님의 메모상세" 스타일 */
-.memberName {
-  color: #3c8dbc; /* 파란색 글씨 */
-  font-size: 26px;/* 글씨 크기 */
-  font-weight: bold; /* 굵게 */
-  margin-bottom: 12px; /* 아래 여백 */
-  display: block; /* 블록 요소로 설정 */
-  line-height: 1.5;
-}
-
-/* 메모 제목 스타일 */
-.memoTitle {
-  color: #000000; /* 주황색 글씨 */
-  font-size: 24px; /* 글씨 크기 */
-  font-weight: bold; /* 굵게 */
-  margin-top: 10px; /* 위 여백 */
-  
-}
-.content {
-  font-size: 20px; /* 텍스트 크기를 20px로 설정 */
-  line-height: 1.5; /* 줄 간격 설정 */
-  color: #333; /* 텍스트 색상 */
-}
-#mainContent {
-  flex: 3; 
-  max-width: 70%; 
-  background-color: #ffffff; 
-  padding: 20px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  border-radius: 8px; 
-}
-#search {
-  margin-bottom: 20px; 
-}
-
-#content table {
-  width: 100%; /* 테이블 너비를 100%로 설정 */
-  border-collapse: collapse; /* 테이블 경계선 제거 */
-}
-
-#content th, #content td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ddd;
-}
-
-#content th {
-  background-color: #3c8dbc;
-  color: white;
-}
-
-.error {
-  color: red;
-  font-size: 0.8em;
+#memoNo{
+	padding-top: 100px;
 }
