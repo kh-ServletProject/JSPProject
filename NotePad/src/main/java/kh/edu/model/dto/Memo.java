@@ -16,4 +16,5 @@ public class Memo {
 	private String writeDate;
 	private String updateDate;
 	private int memberNo;
+	private char deleted;
 }

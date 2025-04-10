@@ -13,7 +13,3 @@ deleteBtn.addEventListener("click", ()=> {
 updateBtn.addEventListener("click", ()=> {
   location.href = "/memo/update?memoNo=" + memoNo;
 });
-
-  location.href = "/memo/delete?memoNo=" + todoNo;
-});
-

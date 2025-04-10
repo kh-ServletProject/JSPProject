@@ -32,10 +32,14 @@ public class LoginServlet extends HttpServlet{
 			
 			if(loginMem == null) { // 아이디와 비밀번호가 일치하는 회원이 없을 경우
 				
-				// 다시 초기 화면으로 forward
-				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				req.getSession().setAttribute("message", "회원가입 먼저 진행해주세요.");
+				
+				// 다시 초기 화면으로
+				resp.sendRedirect("/");
 				return;
 			}
+			
+			req.getSession().setAttribute("message", "로그인 되었습니다.");
 			
 			// 일치하는 회원이 있다면 session에 Member 객체 저장
 			req.getSession().setAttribute("member", loginMem);
@@ -48,10 +52,9 @@ public class LoginServlet extends HttpServlet{
 			
 			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);
 			
-			
 		} catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("로그인 서블릿 오류입니다.");
+			System.out.println("로그인 서블릿 POST 오류입니다.");
 		}
 	}
 	
@@ -70,10 +73,11 @@ public class LoginServlet extends HttpServlet{
 			// request에 가져온 메모 리스트 저장
 			req.setAttribute("memoList", memoList);
 			
-			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);			
 			
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("로그인 서블릿 GET 오류입니다.");
 		}
 	}
 }

@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,7 +10,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>이김강장 메모장</title>
 </head>
 <body>
 	<div>
@@ -29,18 +32,14 @@
 		</div>
 	</div>
 	<button id="signupBtn">회원가입</button>
-
-
-
+  
 	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
 		</script>
-
-		<c:remove var="message" scope="session" />
+		<c:remove var="message" scope="session"/>
 	</c:if>
-
-
+  
 	<script src="/resources/js/test.js"></script>
 </body>
 </html>
