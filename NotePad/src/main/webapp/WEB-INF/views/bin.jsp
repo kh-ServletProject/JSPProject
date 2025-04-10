@@ -10,6 +10,46 @@
 
 <title>${ member.memberName }님의 휴지통</title>
 <link rel ="stylesheet" href="/resources/css/detail.css">
+<style>
+  /* 추가된 버튼 스타일 */
+  #allselect, #deleteBtn, #rollbackBtn, #goMemoList {
+    margin: 10px; 
+    padding: 10px 20px; 
+    background-color: #3c8dbc; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+
+  #allselect:hover, #deleteBtn:hover, #rollbackBtn:hover, #goMemoList:hover {
+    background-color: #357ca5; 
+
+  
+  div {
+    margin-bottom: 15px; 
+  }
+
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin-top: 10px;
+  }
+
+  table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+  table thead {
+    background-color: #3c8dbc;
+    color: white;
+  }
+</style>
 
 </head>
 <body>

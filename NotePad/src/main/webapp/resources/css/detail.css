@@ -114,8 +114,8 @@ h1 {
 
 #addMemo {
 	position: absolute;
-	bottom: 20px; /* 아래에서 20px */
-	right: 20px; /* 오른쪽에서 20px */
+	bottom: 20px; 
+	right: 20px; 
 	background-color: #ff5722;
 	color: white;
 	font-size: 30px;
@@ -181,6 +181,7 @@ h1 {
 	justify-content: space-between;
 	margin-top: 20px;
   gap: 10px;
+	
 }
 
 #loginBtn {
@@ -200,7 +201,7 @@ h1 {
 }
 
 #formContainer {
-	max-width: 600px;
+	max-width: 600px;s
 	margin: 20px auto;
 	padding: 20px;
 	background-color: #ffffff;
@@ -210,9 +211,10 @@ h1 {
 }
 /* Form Group 스타일 */
 .form-group {
-	margin-bottom: 20px;
 	display: flex;
-	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 20px;
+  gap: 10px;
 }
 
 .form-group label {
@@ -423,4 +425,36 @@ table tr:nth-child(even) {
 }
 #memoNo{
 	padding-top: 100px;
+}
+
+#multiSelect {
+  display: inline-block; 
+  margin: 10px 0; 
+  padding: 10px 20px; 
+  background-color: #3c8dbc; 
+  color: white; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+#multiSelect:hover {
+  background-color: #357ca5; 
+}
+
+.btn-group-item {
+	flex: 1; /* 버튼 너비를 동일하게 설정 */
+	background-color: #3c8dbc; /* 기본 파란색 배경 */
+	color: white;
+	padding: 12px 0; /* 버튼 높이 조정 */
+	font-size: 16px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center; /* 텍스트 가운데 정렬 */
+	transition: background-color 0.3s;
+}
+
+.btn-group-item:hover {
+	background-color: #357ca5; /* hover 시 진한 파란색 */
 }

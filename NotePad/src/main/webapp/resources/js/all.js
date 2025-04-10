@@ -1,3 +1,5 @@
+const goMemoList = document.querySelector("#goMemoList");
+
 document.addEventListener("DOMContentLoaded", () => {
   
   const addMemoButton = document.getElementById("addMemo");
@@ -29,4 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+});
+
+goMemoList.addEventListener("click", () => {
+
+	location.href = "/login";
+
 });
