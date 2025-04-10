@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>SignUp</title>
-    <link rel ="stylesheet" href="/resources/css/detail.css">
+<link rel="stylesheet" href="/resources/css/detail.css">
   </head>
 
   <body>

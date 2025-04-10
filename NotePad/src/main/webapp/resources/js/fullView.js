@@ -46,8 +46,8 @@ logoutBtn.addEventListener("click", () => {
 
 // 메모 모두 선택(체크박스 체크)
 selectAllMemo.addEventListener("click", () => {
-  isVisible = !isVisible;
-  checkAll.checked = isVisible;
+  // isVisible = !isVisible;
+  checkAll.checked = !isVisible;
 
   chekedStatus.forEach(chk => {
     chk.checked = isVisible;

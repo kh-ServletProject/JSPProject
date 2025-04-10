@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 
 <title>${ member.memberName }님의 휴지통</title>
-<link rel ="stylesheet" href="/resources/css/detail.css">
+<!-- <link rel="stylesheet" href="/resources/css/detail.css"> -->
+<link rel="stylesheet" href="/resources/css/detail.css">
 
 </head>
 <body>

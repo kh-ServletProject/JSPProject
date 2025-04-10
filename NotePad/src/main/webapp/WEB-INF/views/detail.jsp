@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${memo.memoTitle} 상세조회</title>
-<link rel ="stylesheet" href="/resources/css/detail.css">
+<link rel="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
 	<div id="ditailContainer">

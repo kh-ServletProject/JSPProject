@@ -8,7 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>${ member.memberName }님의 메모장</title>
-<link rel ="stylesheet" href="/resources/css/detail.css">
+<!-- <link rel="stylesheet" href="/resources/css/detail.css"> -->
+<link rel="stylesheet" href="/resources/css/detail.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -40,7 +41,7 @@
 
 					<c:if test="${memo.deleted.toString() == 'n'}">
 
-						<tr>
+						<tr class="centerAlign">
 							<td class="chkTd" style="display:none;"><input class="chekedStatus" type="checkbox" name="memoNo" value="${memo.memoNo}" ></td>
 							<td>${ memo.memoNo }</td>
 

@@ -91,7 +91,8 @@ h1 {
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: 20px;
-	min-height: 600px
+	min-height: 600px;
+	width: 1000px;
 }
 
 #info {
@@ -423,4 +424,32 @@ table tr:nth-child(even) {
 }
 #memoNo{
 	padding-top: 100px;
+}
+
+
+
+
+/* 체크박스 가운데 정렬 */
+.chkTd {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.chekedStatus {
+  display: block;
+  margin: 0 auto;
+}
+
+.centerAlign td {
+	vertical-align: middle;
+}
+
+.chkTd {
+	text-align: center;
+	border : 0px;
+}
+
+.chekedStatus {
+	display: block;
+	margin: 0 auto;
 }

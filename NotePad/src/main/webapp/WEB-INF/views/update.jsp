@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>메모 수정</title>
-<link rel ="stylesheet" href="/resources/css/detail.css">
+<link rel="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
 	<h2>메모 수정하기</h2>
