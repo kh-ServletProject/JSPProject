@@ -24,12 +24,12 @@ pageEncoding="UTF-8" %>
 	</div>
 	<button id="signupBtn">회원가입</button>
   
-	<c:if test="${not empty requestScope.message}">
+	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
 		</script>
 		
-		<c:remove var="message" scope="request"/>
+		<c:remove var="message" scope="session"/>
 	</c:if>	
  
 	<script src="/resources/js/test.js"></script>

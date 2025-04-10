@@ -40,12 +40,12 @@
 		</div>
 	</div>
 	
-	<c:if test="${not empty requestScope.message}">
+	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
 		</script>
 		
-		<c:remove var="message" scope="request"/>
+		<c:remove var="message" scope="session"/>
 	</c:if>		
 	
 	<script src="/resources/js/logout.js"></script>

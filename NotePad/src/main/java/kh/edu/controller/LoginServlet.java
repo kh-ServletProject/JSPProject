@@ -32,14 +32,14 @@ public class LoginServlet extends HttpServlet{
 			
 			if(loginMem == null) { // 아이디와 비밀번호가 일치하는 회원이 없을 경우
 				
-				req.setAttribute("message", "회원가입 먼저 진행해주세요.");
+				req.getSession().setAttribute("message", "회원가입 먼저 진행해주세요.");
 				
-				// 다시 초기 화면으로 forward
-				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+				// 다시 초기 화면으로
+				resp.sendRedirect("/");
 				return;
 			}
 			
-			req.setAttribute("message", "로그인 되었습니다.");
+			req.getSession().setAttribute("message", "로그인 되었습니다.");
 			
 			// 일치하는 회원이 있다면 session에 Member 객체 저장
 			req.getSession().setAttribute("member", loginMem);
