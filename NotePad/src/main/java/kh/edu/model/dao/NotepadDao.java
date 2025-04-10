@@ -2,8 +2,17 @@ package kh.edu.model.dao;
 
 import java.sql.Connection;
 
+import java.util.List;
+
+import kh.edu.model.dto.Member;
+import kh.edu.model.dto.Memo;
+
 public interface NotepadDao {
 
-	int memoUpdate(Connection conn, int memoNo, String title, String content) throws Exception;
+	Member loginMember(Connection conn, String memberId, String memberPw) throws Exception;
+
+	List<Memo> memberMemoList(Connection conn, int memberNo) throws Exception;
+  
+  int memoUpdate(Connection conn, int memoNo, String title, String content) throws Exception;
 
 }

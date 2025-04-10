@@ -12,15 +12,15 @@
 			<div>
 			<form action="/login" method="post">
 				<div><span>ID : <input type="text" name="memberId" required> </span> </div>
-				<div><span>PW : <input type="password" name=memberPw" required></span> </div>
-				<div><button>로그인</button> <button>회원가입</button></div>
+				<div><span>PW : <input type="password" name="memberPw" required></span> </div>
+				<div><button>로그인</button> </div>
 			</form>
 		</div>
 	</div>
-	 
+	<button>회원가입</button>
   
 
  
-
+	<script src="/resources/js/test.js"></script>
 </body>
 </html>

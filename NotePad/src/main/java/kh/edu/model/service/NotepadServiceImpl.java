@@ -1,19 +1,44 @@
 package kh.edu.model.service;
 
-import static kh.edu.common.JDBCTemplate.close;
-import static kh.edu.common.JDBCTemplate.commit;
-import static kh.edu.common.JDBCTemplate.getConnection;
-import static kh.edu.common.JDBCTemplate.rollback;
-
 import java.sql.Connection;
+import java.util.List;
 
+import static kh.edu.common.JDBCTemplate.*;
 import kh.edu.model.dao.NotepadDAOImpl;
 import kh.edu.model.dao.NotepadDao;
+import kh.edu.model.dto.Member;
+import kh.edu.model.dto.Memo;
 
 public class NotepadServiceImpl implements NotepadService {
 
-	private NotepadDao dao = new NotepadDAOImpl();
+	NotepadDao dao = new NotepadDAOImpl();
+	
 	@Override
+	public Member loginMember(String memberId, String memberPw) throws Exception {
+
+		Connection conn = getConnection();
+		
+		Member member = dao.loginMember(conn, memberId, memberPw);
+		
+		close(conn);
+		
+		return member;
+	}
+
+	@Override
+	public List<Memo> memberMemoList(int memberNo) throws Exception {
+
+		Connection conn = getConnection();
+		
+		List<Memo> memoList = dao.memberMemoList(conn, memberNo);
+		
+		close(conn);
+		
+		return memoList;
+
+	}
+
+  	@Override
 	public int memoUpdate(int memoNo, String title, String content) throws Exception {
 		Connection conn = getConnection();
 		
@@ -26,6 +51,5 @@ public class NotepadServiceImpl implements NotepadService {
 		close(conn);		
 		
 		return result;
-	}
-
+  }
 }
