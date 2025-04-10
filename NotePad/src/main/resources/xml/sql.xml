@@ -19,5 +19,13 @@
 		FROM MEMO
 		WHERE MEMBER_NO = ?
 	</entry>
+  
+ <!--  메모 수정  -->
+<entry key="todoUpdate">
+	UPDATE MEMO
+	SET MEMO_TITLE = ?,
+	MEMO_CONTENT =?
+	WHERE MEMO_NO = ?
+</entry>
 
 </properties>

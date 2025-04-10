@@ -35,6 +35,21 @@ public class NotepadServiceImpl implements NotepadService {
 		close(conn);
 		
 		return memoList;
+
 	}
 
+  	@Override
+	public int memoUpdate(int memoNo, String title, String content) throws Exception {
+		Connection conn = getConnection();
+		
+		int result = dao.memoUpdate(conn, memoNo, title, content);
+		
+		// 트랜잭션 제어 처리
+		if(result>0) commit(conn);
+		else 		 rollback(conn);
+		
+		close(conn);		
+		
+		return result;
+  }
 }

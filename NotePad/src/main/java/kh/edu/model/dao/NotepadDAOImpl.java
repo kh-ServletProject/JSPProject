@@ -96,6 +96,28 @@ public class NotepadDAOImpl implements NotepadDao {
 		}
 		
 		return memoList;
-	}
 
+	}
+  
+  	@Override
+	public int memoUpdate(Connection conn, int memoNo, String title, String content) throws Exception {
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("memoUpdate");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, memoNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+  }
 }

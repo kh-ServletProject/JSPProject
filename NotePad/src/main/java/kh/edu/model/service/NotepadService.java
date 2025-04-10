@@ -22,4 +22,6 @@ public interface NotepadService {
 	 */
 	List<Memo> memberMemoList(int memberNo) throws Exception;
 
+  int memoUpdate(int memoNo, String title, String content) throws Exception;
+
 }
