@@ -27,6 +27,25 @@ public interface NotepadService {
 	List<Memo> memberMemoList(int memberNo) throws Exception;
 
 	int memoUpdate(int memoNo, String title, String content) throws Exception;
+	
+	/**회원가입 
+	 * @param memberId
+	 * @param memberPw
+	 * @param memberName
+	 * @return
+	 * @throws Exception
+	 */
 	int signUp(String memberId, String memberPw, String memberName) throws Exception;
+
+	/**회원가입 하기전에 memberId가 중복되지않는지 조회
+	 * @param memberId
+	 * @return
+	 * @throws Exception
+	 */
+	int findId(String memberId) throws Exception;
+
+	
+
+	int addMemo(String memoTitle, String memoContent, int memberNo)throws Exception;
 
 }
