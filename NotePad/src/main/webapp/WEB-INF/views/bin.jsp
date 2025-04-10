@@ -7,7 +7,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>${ member.memberName }님의 휴지통</title>
 <link rel ="stylesheet" href="/resources/css/detail.css">
 <style>
@@ -24,13 +23,11 @@
   }
 
   #allselect:hover, #deleteBtn:hover, #rollbackBtn:hover, #goMemoList:hover {
-    background-color: #357ca5; 
-
+    background-color: #357ca5;
   
   div {
     margin-bottom: 15px; 
   }
-
   
   table {
     width: 100%;
@@ -50,10 +47,9 @@
     color: white;
   }
 </style>
-
 </head>
-<body>
 
+<body>
 	<div>
 		<button type="button" id="allselect">전체선택</button>
 	</div>
@@ -70,10 +66,9 @@
 			</thead>
 			<tbody>
 				<form action="/memo/delete" method="post" id="multiBinForm">
-					<c:forEach var="memo" items="${ requestScope.memoList }"
-						varStatus="vs">
+					<c:forEach var="memo" items="${ requestScope.memoList }">
+					
 						<c:if test="${ memo.deleted.toString() == 'y'}">
-
 							<tr>
 								<td><input type="checkbox" class="checkboxBin"
 									name="memoNo" value="${memo.memoNo}" /></td>
@@ -81,17 +76,13 @@
 								<td>${ memo.memoTitle }</td>
 								<td>${ memo.writeDate }</td>
 								<td>${ memo.updateDate }</td>
-
 							</tr>
 						</c:if>
+						
 					</c:forEach>
+					
 					<button id="deleteBtn" value="deleteBtn" name="action">영구삭제</button>
 					<button id="rollbackBtn" value="rollbackBtn" name="action">복구</button>
-				</form>
-
-				<!-- 복구 폼 -->
-				<form action="/memo/rollback" method="post" id="rollbackForm">
-					
 				</form>
 			</tbody>
 		</table>
@@ -103,6 +94,5 @@
 
 	<script src="/resources/js/detail.js"></script>
 	<script src="/resources/js/bin.js"></script>
-
 </body>
 </html>

@@ -3,16 +3,14 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
 <title>이김강장 메모장</title>
 <link rel="stylesheet" href="/resources/css/detail.css">
 </head>
+
 <body>
 	<div>
 		<h1>이김강장 메모장</h1>
@@ -24,6 +22,7 @@
 				<div>
 					<span>PW : <input type="password" name="memberPw" required></span>
 				</div>
+				
 				<div id="buttonGroup">
 					<button id="loginBtn" type="submit">로그인</button>
 					<button id="signupBtn" type="button" onclick="window.location.href='/signup'">회원가입</button>
@@ -43,4 +42,3 @@
 	<script src="/resources/js/test.js"></script>
 </body>
 </html>
-

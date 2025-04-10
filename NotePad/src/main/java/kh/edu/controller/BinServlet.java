@@ -36,5 +36,4 @@ public class BinServlet extends HttpServlet { // 휴지통 화면 보여부기
 			e.printStackTrace();
 		}
 	}
-
 }
