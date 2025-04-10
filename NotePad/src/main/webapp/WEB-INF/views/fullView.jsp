@@ -36,33 +36,30 @@
 
 				</thead>
 				<tbody>
-				
-				<form action="/memo/multiBin" method="post" id="multiBinForm">
-					<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
-
-					<c:if test="${memo.deleted.toString() == 'n'}">
-
-						<tr>
-							<td class="chkTd" style="display:none;"><input class="chekedStatus" type="checkbox" name="memoNo" value="${memo.memoNo}" ></td>
-							<td>${ memo.memoNo }</td>
-
-							<td class="title"><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
-							<td>${ memo.writeDate }</td>
-							<td>${ memo.updateDate }</td>
-						</tr>
-						</c:if>
-					</c:forEach>
-         			<button id="multiBin" style="display:none;">휴지통에버리기</button>
-          		</form>
-          	<button id="multiSelect">여러 항목 삭제</button>
-         	 
-					<form action="/memo/bin" method="post">
-						
-							<button id="bin"></button>
-						
-					</form>
-          
-				</tbody>
+					<form action="/memo/multiBin" method="post" id="multiBinForm">
+						<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
+	
+						<c:if test="${memo.deleted.toString() == 'n'}">
+	
+							<tr>
+								<td class="chkTd" style="display:none;"><input class="chekedStatus" type="checkbox" name="memoNo" value="${memo.memoNo}" ></td>
+								<td>${ memo.memoNo }</td>
+	
+								<td class="title"><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
+								<td>${ memo.writeDate }</td>
+								<td>${ memo.updateDate }</td>
+							</tr>
+							</c:if>
+						</c:forEach>
+	         			<button id="multiBin" style="display:none;">휴지통에버리기</button>
+	          		</form>
+	          	<button id="multiSelect">여러 항목 삭제</button>
+	         	 
+				<form action="/memo/bin" method="post">
+					<button id="bin"></button>
+				</form>
+	          
+			</tbody>
 			</table>
 		</div>
 		</div>

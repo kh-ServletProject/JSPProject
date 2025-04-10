@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
 			if (loginMem == null) { // 아이디와 비밀번호가 일치하는 회원이 없을 경우
 
-				req.getSession().setAttribute("message", "회원가입 먼저 진행해주세요.");
+				req.getSession().setAttribute("message", "ID, 혹은 비밀번호가 맞지않습니다.");
 
 				// 다시 초기 화면으로
 				resp.sendRedirect("/");
