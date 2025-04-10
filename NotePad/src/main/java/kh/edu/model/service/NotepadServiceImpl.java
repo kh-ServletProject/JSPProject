@@ -169,4 +169,20 @@ public class NotepadServiceImpl implements NotepadService {
 
 	}
 
+	@Override
+	public int memoRollback(int memoNo) throws Exception {
+		Connection conn = getConnection();
+
+		int result = dao.memoRollback(conn, memoNo);
+
+		if (result > 0)
+			commit(conn);
+		else
+			rollback(conn);
+
+		close(conn);
+
+		return result;
+	}
+
 }

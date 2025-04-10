@@ -53,5 +53,7 @@ public interface NotepadService {
 
 	int addMemo(String memoTitle, String memoContent, int memberNo)throws Exception;
 
+	int memoRollback(int memoNo) throws Exception;
+
 
 }

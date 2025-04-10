@@ -24,7 +24,7 @@
 			<table border=1 id="hidetr">
 				<thead>
 					<tr>
-						<th id="selectAllMemo"  style="display:none;">선택</th>
+						<th id="selectAllMemo"  style="display:none;"><input id="checkAll" type="checkbox" >선택</th>
 						<th>번호</th>
 						<th>제목</th>
 						<th>생성 날짜</th>
@@ -39,9 +39,11 @@
 					<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
 
 					<c:if test="${memo.deleted.toString() == 'n'}">
-						<tr id="hidetr">
-							<td class="multiCheckbox" style="display:none;"><input type="checkbox" name="memoNo" value="${memo.memoNo}" ></td>
-							<td >${ memo.memoNo }</td>
+
+						<tr>
+							<td class="chkTd" style="display:none;"><input class="chekedStatus" type="checkbox" name="memoNo" value="${memo.memoNo}" ></td>
+							<td>${ memo.memoNo }</td>
+
 							<td class="title"><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
 							<td>${ memo.writeDate }</td>
 							<td>${ memo.updateDate }</td>
