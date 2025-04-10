@@ -33,6 +33,7 @@
 				<c:if test="${ memo.deleted.toString() == 'y'}">
 
 					<tr>
+						 <td><input type="checkbox" class="checkboxBin" name="memoNo" value="${memo.memoNo}"/></td>
 						<td>${ memo.memoNo }</td>
 						<td>${ memo.memoTitle }</td>
 						<td>${ memo.writeDate }</td>
