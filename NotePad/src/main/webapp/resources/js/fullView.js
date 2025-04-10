@@ -29,6 +29,7 @@ multiSelect.addEventListener("click", () => {
       checkAll.checked = false;
     });
     chkTd.style.display = isVisible ? "flex" : "none";
+
   });
   
   // 버튼 토글
@@ -85,3 +86,4 @@ searchInput.addEventListener("keyup", (e) => {
   }
 
 });
+
