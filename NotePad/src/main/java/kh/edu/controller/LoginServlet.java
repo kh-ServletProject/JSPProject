@@ -14,8 +14,8 @@ import kh.edu.model.service.NotepadService;
 import kh.edu.model.service.NotepadServiceImpl;
 
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet{
-	
+public class LoginServlet extends HttpServlet {
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -23,61 +23,61 @@ public class LoginServlet extends HttpServlet{
 			// index.jsp에서 넘어온 memberId, memberPw 받아줌
 			String memberId = req.getParameter("memberId");
 			String memberPw = req.getParameter("memberPw");
-			
+
 			// 서비스 객체 생성
 			NotepadService service = new NotepadServiceImpl();
-			
+
 			// 서비스 메서드 호출
 			Member loginMem = service.loginMember(memberId, memberPw);
-			
-			if(loginMem == null) { // 아이디와 비밀번호가 일치하는 회원이 없을 경우
-				
+
+			if (loginMem == null) { // 아이디와 비밀번호가 일치하는 회원이 없을 경우
+
 				req.getSession().setAttribute("message", "회원가입 먼저 진행해주세요.");
-				
+
 				// 다시 초기 화면으로
 				resp.sendRedirect("/");
 				return;
 			}
-			
+
 			req.getSession().setAttribute("message", "로그인 되었습니다.");
-			
+
 			// 일치하는 회원이 있다면 session에 Member 객체 저장
 			req.getSession().setAttribute("member", loginMem);
-			
+
 			// 로그인한 회원의 메모 리스트를 가져오는 서비스 메서드 호출
 			List<Memo> memoList = service.memberMemoList(loginMem.getMemberNo());
-			
+
 			// request에 가져온 메모 리스트 저장
 			req.setAttribute("memoList", memoList);
-			
+
 			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("로그인 서블릿 POST 오류입니다.");
 		}
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		try {
 			// 서비스 객체 생성
 			NotepadService service = new NotepadServiceImpl();
-			
-			Member loginMem = (Member)req.getSession().getAttribute("member");
-			
+
+			Member loginMem = (Member) req.getSession().getAttribute("member");
+
 			// 로그인한 회원의 메모 리스트를 가져오는 서비스 메서드 호출
 			List<Memo> memoList = service.memberMemoList(loginMem.getMemberNo());
-			
+
 			// request에 가져온 메모 리스트 저장
 			req.setAttribute("memoList", memoList);
-			
-			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);			
-			
+
+			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("로그인 서블릿 GET 오류입니다.");
-    }
+		}
 	}
 }
