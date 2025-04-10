@@ -60,8 +60,6 @@ public class NotepadServiceImpl implements NotepadService {
 		
 			Connection conn = getConnection();
 			
-			NotepadDao dao = new NotepadDAOImpl();
-			
 			Memo memo = dao.memoDetail(conn, memoNo);
 			
 			close(conn);
@@ -74,8 +72,6 @@ public class NotepadServiceImpl implements NotepadService {
 	public int memoDelete(int memoNo) throws Exception {
 		
 		Connection conn = getConnection();
-		
-		NotepadDao dao = new NotepadDAOImpl();
 		
 		int result = dao.memoDelete(conn, memoNo);
 		
@@ -96,8 +92,6 @@ public class NotepadServiceImpl implements NotepadService {
 		Connection conn = getConnection();
 		
 		int result = dao.signUp(memberId,memberPw,memberName,conn);
-	
-		
 		
 		//트랜잭션 처리
 		
@@ -136,11 +130,39 @@ public class NotepadServiceImpl implements NotepadService {
 		
 		close(conn);
 		
+		return result;
+	}
+
+	public int findId(String memberId) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.findId(conn,memberId);
+		
+		close(conn);
 		
 		return result;
 	}
+
+	@Override
+	public int addMemo(String memoTitle, String memoContent,int memberNo) throws Exception {
+		
+		
+	Connection conn = getConnection();
+		
+		int result = dao.addMemo(memberNo,memoTitle,memoContent,conn);
 	
-	
-	
+		//트랜잭션 처리
+		
+		if(result >0) {
+			
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+		
+	}
 	
 }

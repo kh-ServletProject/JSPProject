@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Properties;
 
 import kh.edu.model.dto.Member;
+import kh.edu.model.dto.Member.MemberBuilder;
 import kh.edu.model.dto.Memo;
 
 public class NotepadDAOImpl implements NotepadDao {
@@ -228,12 +229,40 @@ public class NotepadDAOImpl implements NotepadDao {
 			
 			
 		} finally {
+      			close(rs);
+			close(pstmt);
+		}
+  
+  return memeoList;
+}
+
+	public int findId(Connection conn, String memberId) throws Exception {
+		
+		int result= 0;
+		
+		try {
+			
+			String sql = prop.getProperty("findId");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+		
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				result = rs.getInt(1);
+			}
+
+			System.out.println("daoImpl : " + result);
+			
+		}finally {
 			close(rs);
 			close(pstmt);
 		}
+    		return result;
+  }
 		
-		return null;
-	}
 
 	@Override
 	public int memoGoBin(Connection conn, int memoNo) throws Exception {
@@ -251,6 +280,29 @@ public class NotepadDAOImpl implements NotepadDao {
 				System.out.println("result = " + result);
 			
 		} finally {
+      close(pstmt);
+    }
+
+		return result;
+	}
+
+	@Override
+	public int addMemo(int memberNo,String memoTitle, String memoContent, Connection conn) throws Exception {
+		
+		int result  = 0;
+		
+		try {
+			String sql = prop.getProperty("addMemo");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memoTitle);
+			pstmt.setString(2, memoContent);
+			pstmt.setInt(3, memberNo);
+			
+			
+			result = pstmt.executeUpdate();
+			
+		}finally{
 			
 			close(pstmt);
 		}

@@ -17,7 +17,7 @@ import kh.edu.model.service.NotepadServiceImpl;
  * 메모 수정 페이지 - 미애
  */
 @WebServlet("/memo/update")
-public class UpdateMemo extends HttpServlet {
+public class UpdateMemoServlet extends HttpServlet {
 	
 	// 수정 버튼 눌렀을 때 화면에 기존에 가지고 있는 값 뿌려서 보여주기
 	@Override
@@ -32,16 +32,16 @@ public class UpdateMemo extends HttpServlet {
 			NotepadService service = new NotepadServiceImpl();
 			
 			// 조회한 내용 가져오기
-			//Memo memo = service.memoDetail(memoNo);
+			Memo memo = service.memoDetail(memoNo);
 			
 			// 임시 데이터 
-			Memo memo = Memo.builder()
-						.memoNo(1)
-						.memoTitle("제목1")
-						.memoContent("내용1")
-						.writeDate("2025-04-09")
-						.updateDate("2025-04-09")
-						.memberNo(1).build();
+//			Memo memo = Memo.builder()
+//						.memoNo(1)
+//						.memoTitle("제목1")
+//						.memoContent("내용1")
+//						.writeDate("2025-04-09")
+//						.updateDate("2025-04-09")
+//						.memberNo(1).build();
 
 			if(memo == null) {
 				// 메인 페이지 redirect
@@ -69,17 +69,10 @@ public class UpdateMemo extends HttpServlet {
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
 			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
-			
+
 			NotepadService service = new NotepadServiceImpl();
 			int result = service.memoUpdate(memoNo, title, content);
 			
-			// 수정 성공 시
-			// 상세 조회 페이지로 redirect
-			// "수정되었습니다" message를 alert출력
-			
-			// 수정 실패 시
-			// 수정 화면으로 redirect
-			// "수정 실패" messagae를 alert 출력
 			String url = null;
 			String message = null;
 			
@@ -94,6 +87,7 @@ public class UpdateMemo extends HttpServlet {
 			}
 			
 			// session 객체에 속성 추가
+			System.out.println("message 콘솔 확인 : " + message);
 			req.getSession().setAttribute("message", message);
 			resp.sendRedirect(url);
 
