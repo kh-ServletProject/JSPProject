@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Memo {
 	private int memoNo;
 	private String memoTitle;
@@ -16,5 +16,4 @@ public class Memo {
 	private String writeDate;
 	private String updateDate;
 	private int memberNo;
-
 }
