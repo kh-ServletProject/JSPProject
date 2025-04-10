@@ -14,27 +14,27 @@ import kh.edu.model.service.NotepadService;
 import kh.edu.model.service.NotepadServiceImpl;
 
 @WebServlet("/memo/bin")
-public class BinServlet extends HttpServlet{ // 휴지통 화면 보여부기
-	
+public class BinServlet extends HttpServlet { // 휴지통 화면 보여부기
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-			try {
-				// 서비스 객체 생성
-				NotepadService service = new NotepadServiceImpl();
+		try {
+			NotepadService service = new NotepadServiceImpl();
 
-				Member loginMem = (Member) req.getSession().getAttribute("member");
-				
-				List<Memo> memoList = service.memberMemoList(loginMem.getMemberNo());
+			Member loginMem = (Member) req.getSession().getAttribute("member");
 
-				
-				req.setAttribute("memoList", memoList);
+			// 로그인한 회원의 메모 리스트를 가져오는 서비스 메서드 호출
+			List<Memo> memoList = service.memberMemoList(loginMem.getMemberNo());
 
-				req.getRequestDispatcher("/WEB-INF/views/bin.jsp").forward(req, resp);
+			// request에 가져온 메모 리스트 저장
+			req.setAttribute("memoList", memoList);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			req.getRequestDispatcher("/WEB-INF/views/bin.jsp").forward(req, resp);
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
 	}
+
+}
