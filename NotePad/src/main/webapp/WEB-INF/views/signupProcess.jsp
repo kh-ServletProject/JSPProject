@@ -21,6 +21,7 @@ pageEncoding="UTF-8"%>
     </form>
     <button id="homeBtn">Home</button>
 
+   
     <c:if test="${not empty sessionScope.message}">
       <script>
         alert("${sessionScope.mes}");
