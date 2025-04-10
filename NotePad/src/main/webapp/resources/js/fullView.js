@@ -1,10 +1,11 @@
 const addMemo = document.querySelector("#addMemo");
 
 const multiSelect = document.querySelector("#multiSelect");
-const checkTds = document.querySelectorAll(".chkTd");
+const checkTds = document.querySelectorAll(".chkTd"); // 체크되는 각 행
 const chekedStatus = document.querySelectorAll(".chekedStatus");
-const selectAllMemo = document.querySelector("#selectAllMemo");
+const selectAllMemo = document.querySelector("#selectAllMemo"); // 선택
 const multiBin = document.querySelector("#multiBin");
+const checkAll  = document.querySelector("#checkAll"); //선택 체크박스
 
 let isVisible = false;
 
@@ -17,15 +18,17 @@ addMemo.addEventListener("click", ()=>{
 // 여러 항목 삭제 선택 시 
 multiSelect.addEventListener("click", () => {
 	isVisible = !isVisible;
-  selectAllMemo.style.display = isVisible ? "inline-block" : "none";
-  multiBin.style.display = isVisible ? "inline-block" : "none";
+  selectAllMemo.style.display = isVisible ? "flex" : "none";
+  multiBin.style.display = isVisible ? "flex" : "none";
+  checkAll.style.display = isVisible ? "flex" : "none";
 
   // 모든 메모 체크박스 항목들 받아와서 화면에 보임/숨김 설정
   checkTds.forEach(chkTd => {
     chekedStatus.forEach(chk => {
       chk.checked = false; // 숨길 때만 체크 해제
+      checkAll.checked = false;
     });
-    chkTd.style.display = isVisible ? "inline-block" : "none";
+    chkTd.style.display = isVisible ? "flex" : "none";
   });
   
   // 버튼 토글
@@ -39,6 +42,18 @@ logoutBtn.addEventListener("click", () => {
 
   location.href = "/logout";
 });
+
+// 메모 모두 선택(체크박스 체크)
+selectAllMemo.addEventListener("click", () => {
+  isVisible = !isVisible;
+  checkAll.checked = isVisible;
+
+  chekedStatus.forEach(chk => {
+    chk.checked = isVisible;
+  });
+  
+});
+
 
 // fullView.jsp 내의 input 태그
 const searchInput = document.querySelector(".searchInput");

@@ -24,7 +24,7 @@
 			<table border=1>
 				<thead>
 					<tr>
-						<th id="selectAllMemo"  style="display:none;">선택</th>
+						<th id="selectAllMemo"  style="display:none;"><input id="checkAll" type="checkbox" >선택</th>
 						<th>번호</th>
 						<th>제목</th>
 						<th>생성 날짜</th>
