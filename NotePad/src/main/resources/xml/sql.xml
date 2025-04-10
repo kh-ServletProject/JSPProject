@@ -29,10 +29,11 @@
 	</entry>
   
  <!--  메모 수정  -->
-<entry key="todoUpdate">
+<entry key="memoUpdate">
 	UPDATE MEMO
 	SET MEMO_TITLE = ?,
-	MEMO_CONTENT =?
+	MEMO_CONTENT =?,
+	UPDATE_DATE = SYSDATE
 	WHERE MEMO_NO = ?
 </entry>
   
