@@ -86,6 +86,7 @@ public class NotepadDAOImpl implements NotepadDao {
 							.writeDate(rs.getString(4))
 							.updateDate(rs.getString(5))
 							.memberNo(memberNo)
+							.deleted(rs.getString(7).charAt(0))
 							.build());
 			}
 			

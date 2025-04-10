@@ -19,7 +19,8 @@
 						<th>번호</th>
 						<th>제목</th>
 						<th>생성 날짜</th>
-						<th>수정 날짜</th>					
+						<th>수정 날짜</th>
+						<%-- <th>삭제 여부</th> --%>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,6 +30,7 @@
 							<td><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
 							<td>${ memo.writeDate }</td>
 							<td>${ memo.updateDate }</td>
+							<%-- <td>${ memo.deleted }</td> --%>
 						</tr>
 					</c:forEach>
 				</tbody>
