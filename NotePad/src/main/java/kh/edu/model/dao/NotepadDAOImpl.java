@@ -34,6 +34,56 @@ public class NotepadDAOImpl implements NotepadDao {
 			System.out.println("sql.xml 불러오기 실패");
 		}
 	}
+	
+	@Override
+	public int findId(Connection conn, String memberId) throws Exception {
+
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("findId");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				result = rs.getInt(1);
+			}
+
+			System.out.println("daoImpl : " + result);
+
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public int signUp(String memberId, String memberPw, String memberName, Connection conn) throws Exception {
+
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("signUp");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPw);
+			pstmt.setString(3, memberName);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
 
 	@Override
 	public Member loginMember(Connection conn, String memberId, String memberPw) throws Exception {
@@ -50,7 +100,8 @@ public class NotepadDAOImpl implements NotepadDao {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				member = Member.builder().memberNo(rs.getInt("MEMBER_NO")).memberId(memberId).memberPw(memberPw)
+				member = Member.builder().memberNo(rs.getInt("MEMBER_NO"))
+						.memberId(memberId).memberPw(memberPw)
 						.memberName(rs.getString("MEMBER_NAME")).build();
 			}
 
@@ -76,9 +127,10 @@ public class NotepadDAOImpl implements NotepadDao {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				memoList.add(Memo.builder().memoNo(rs.getInt(1)).memoTitle(rs.getString(2)).memoContent(rs.getString(3))
-						.writeDate(rs.getString(4)).updateDate(rs.getString(5)).memberNo(memberNo)
-						.deleted(rs.getString(7).charAt(0)).build());
+				memoList.add(Memo.builder().memoNo(rs.getInt(1))
+						.memoTitle(rs.getString(2)).memoContent(rs.getString(3))
+						.writeDate(rs.getString(4)).updateDate(rs.getString(5))
+						.memberNo(memberNo).deleted(rs.getString(7).charAt(0)).build());
 			}
 
 		} finally {
@@ -87,7 +139,6 @@ public class NotepadDAOImpl implements NotepadDao {
 		}
 
 		return memoList;
-
 	}
 
 	@Override
@@ -95,7 +146,6 @@ public class NotepadDAOImpl implements NotepadDao {
 		int result = 0;
 
 		try {
-
 			String sql = prop.getProperty("memoUpdate");
 
 			pstmt = conn.prepareStatement(sql);
@@ -118,7 +168,6 @@ public class NotepadDAOImpl implements NotepadDao {
 		Memo memo = null;
 
 		try {
-
 			String sql = prop.getProperty("memoDetail");
 
 			pstmt = conn.prepareStatement(sql);
@@ -128,18 +177,16 @@ public class NotepadDAOImpl implements NotepadDao {
 
 			if (rs.next()) {
 
-				memo = Memo.builder().memoNo(memoNo).memoTitle(rs.getString("MEMO_TITLE"))
-						.memoContent(rs.getString("MEMO_CONTENT")).writeDate(rs.getString("WRITE_DATE"))
-						.updateDate(rs.getString("UPDATE_DATE")).build();
-
+				memo = Memo.builder().memoNo(memoNo).memoTitle(rs.getString("MEMO_TITLE")).memoContent(rs.getString("MEMO_CONTENT"))
+						.writeDate(rs.getString("WRITE_DATE")).updateDate(rs.getString("UPDATE_DATE")).build();
 			}
 
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
+		
 		return memo;
-
 	}
 
 	@Override
@@ -148,7 +195,6 @@ public class NotepadDAOImpl implements NotepadDao {
 		int result = 0;
 
 		try {
-
 			String sql = prop.getProperty("memoDelete");
 
 			pstmt = conn.prepareStatement(sql);
@@ -163,36 +209,13 @@ public class NotepadDAOImpl implements NotepadDao {
 		return result;
 	}
 
-	@Override
-	public int signUp(String memberId, String memberPw, String memberName, Connection conn) throws Exception {
-
-		int result = 0;
-
-		try {
-			String sql = prop.getProperty("signUp");
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-			pstmt.setString(2, memberPw);
-			pstmt.setString(3, memberName);
-
-			result = pstmt.executeUpdate();
-
-		} finally {
-
-			close(pstmt);
-		}
-
-		return result;
-	}
-
+	/*
 	@Override
 	public List<Memo> memberBinList(Connection conn, int memberNo) throws Exception {
 
 		List<Memo> memoList = new ArrayList<>();
 
 		try {
-
 			String sql = prop.getProperty("memoBin");
 
 			pstmt = conn.prepareStatement(sql);
@@ -212,35 +235,8 @@ public class NotepadDAOImpl implements NotepadDao {
 		}
   
        return memoList;
-}
-
-
-	public int findId(Connection conn, String memberId) throws Exception {
-
-		int result = 0;
-
-		try {
-
-			String sql = prop.getProperty("findId");
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberId);
-
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-
-				result = rs.getInt(1);
-			}
-
-			System.out.println("daoImpl : " + result);
-
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		return result;
 	}
+	*/
 
 	@Override
 	public int memoGoBin(Connection conn, int memoNo) throws Exception {
@@ -248,7 +244,6 @@ public class NotepadDAOImpl implements NotepadDao {
 		int result = 0;
 
 		try {
-
 			String sql = prop.getProperty("goBin");
 
 			pstmt = conn.prepareStatement(sql);
@@ -280,7 +275,6 @@ public class NotepadDAOImpl implements NotepadDao {
 			result = pstmt.executeUpdate();
 
 		} finally {
-
 			close(pstmt);
 		}
 
@@ -292,7 +286,6 @@ public class NotepadDAOImpl implements NotepadDao {
 		int result = 0;
 
 		try {
-
 			String sql = prop.getProperty("memoRollback");
 
 			pstmt = conn.prepareStatement(sql);

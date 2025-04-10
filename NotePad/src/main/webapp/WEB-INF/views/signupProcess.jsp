@@ -1,34 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>SignUp</title>
-    <link rel ="stylesheet" href="/resources/css/detail.css">
-  </head>
+<head>
+<meta charset="UTF-8" />
+<title>회원가입</title>
+<link rel="stylesheet" href="/resources/css/detail.css">
+</head>
 
-  <body>
-    <h1>NOTE PAD 회원 가입</h1>
-    <form action="/signup" method="post" id="signupForm">
-      <div>
-        생성할 ID : <input type="text" name="memberId" required id="memberId"/>
-        <span id="idError" class="error"></span><br><br>
-        비밀번호 입력 : <input type="password" name="memberPw" required id="memberPw"/>
-        <span id="pwError" class="error"></span><br><br>
-        이름 입력 : <input type="text" name="memberName" required />
-        
-      </div>
+<body>
+	<h1>NOTE PAD 회원가입</h1>
+	<form action="/signup" method="post" id="signupForm">
+		<div>
+			생성할 ID : <input type="text" name="memberId" id="memberId" required/>
+			<span id="idError" class="error"></span>
+			
+			<br><br>
+			
+			비밀번호 입력 : <input type="password" name="memberPw" id="memberPw" required/>
+			<span id="pwError" class="error"></span>
+				
+			<br><br>
+			
+			이름 입력 : <input type="text" name="memberName" required/>
+		</div>
 
-      <div id="buttonGroup">
-        <button type="button" id="homeBtn">Home</button>
-        <button id="signupBtn">회원가입하기</button>
-      </div>
-    </form>
-    
-    <script>
+		<div id="buttonGroup">
+			<button type="button" id="homeBtn">Home</button>
+			<button id="signupBtn">회원가입하기</button>
+		</div>
+	</form>
+
+	<script>
    
       document.getElementById("homeBtn").addEventListener("click", function () {
         window.location.href = "/"; // 메인 페이지 경로로 리다이렉트
@@ -68,19 +74,15 @@ pageEncoding="UTF-8"%>
         }
       });
     </script>
-    
 
-  
 	<c:if test="${not empty sessionScope.message}">
-  		<script>
-  		
+		<script>
   			alert("${message}");
   		</script>
-  		
-  		<c:remove var="message" scope="session"/>
-  	</c:if>
+		<c:remove var="message" scope="session" />
+	</c:if>
 
-    <script src="/resources/js/all.js"></script>
-    <script src="/resources/js/test.js"></script>
-  </body>
+	<script src="/resources/js/all.js"></script>
+	<script src="/resources/js/test.js"></script>
+</body>
 </html>

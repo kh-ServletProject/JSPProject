@@ -1,5 +1,3 @@
-const goMemoList = document.querySelector("#goMemoList");
-
 document.addEventListener("DOMContentLoaded", () => {
   
   const addMemoButton = document.getElementById("addMemo");
@@ -23,18 +21,4 @@ document.addEventListener("DOMContentLoaded", () => {
     const tooltip = document.getElementById("tooltip");
     if (tooltip) tooltip.remove();
   });
-
-  // Smooth scroll to top when "목록으로" button is clicked
-  const goMemoListButton = document.getElementById("goMemoList");
-  if (goMemoListButton) {
-    goMemoListButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-});
-
-goMemoList.addEventListener("click", () => {
-
-	location.href = "/login";
-
 });
