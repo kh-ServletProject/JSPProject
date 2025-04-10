@@ -26,17 +26,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="memo" items="${ requestScope.memoList }"
-					varStatus="vs">
-					<c:if test="${memo.deleted.toString() == 'y'}">
-						<tr>
-							<td><input type="checkbox" class="checkboxBin" /></td>
-							<td>${ memo.memoNo }</td>
-							<td>${ memo.memoTitle }</td>
-							<td>${ memo.writeDate }</td>
-							<td>${ memo.updateDate }</td>
-						</tr>
-					</c:if>
+				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
+				<c:if test="${ memo.deleted.toString() == 'y'}">
+					<tr>
+						<td>${ memo.memoNo }</td>
+						<td>${ memo.memoTitle }</td>
+						<td>${ memo.writeDate }</td>
+						<td>${ memo.updateDate }</td>
+					</tr>
+				</c:if>
 				</c:forEach>
 				<button id="deleteBtn">삭제</button>
 			</tbody>

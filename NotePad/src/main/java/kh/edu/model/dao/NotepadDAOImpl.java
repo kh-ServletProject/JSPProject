@@ -1,6 +1,7 @@
 package kh.edu.model.dao;
 
 import static kh.edu.common.JDBCTemplate.*;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,7 +12,6 @@ import java.util.List;
 import java.util.Properties;
 
 import kh.edu.model.dto.Member;
-import kh.edu.model.dto.Member.MemberBuilder;
 import kh.edu.model.dto.Memo;
 
 public class NotepadDAOImpl implements NotepadDao {
