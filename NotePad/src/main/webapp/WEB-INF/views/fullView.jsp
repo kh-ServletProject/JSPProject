@@ -13,7 +13,7 @@
 
 	<div id="viewContainer">
 		<div id="search">
-			<input type="text" placeholder="검색할 제목을 입력하세요.">
+			<input type="text" class="searchInput" placeholder="검색할 제목을 입력하세요.">
 		</div>
 		<div id="content">
 			<table border=1>
@@ -29,13 +29,15 @@
 				</thead>
 				<tbody>
 					<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
-						<tr>
-							<td>${ memo.memoNo }</td>
-							<td><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
-							<td>${ memo.writeDate }</td>
-							<td>${ memo.updateDate }</td>
-							<%-- <td>${ memo.deleted }</td> --%>
-						</tr>
+						<c:if test="${ memo.deleted.toString() == 'n' }">
+							<tr>
+								<td>${ memo.memoNo }</td>
+								<td class="title"><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
+								<td>${ memo.writeDate }</td>
+								<td>${ memo.updateDate }</td>
+								<%-- <td>${ memo.deleted }</td> --%>
+							</tr>
+						</c:if>
 					</c:forEach>
           
           <form action="/memo/bin" method="post">
@@ -60,8 +62,6 @@
 		<c:remove var="message" scope="session"/>
 	</c:if>
 	
-	
-	<script src="/resources/js/logout.js"></script>
 	<script src="/resources/js/fullView.js"></script>
 </body>
 </html>
