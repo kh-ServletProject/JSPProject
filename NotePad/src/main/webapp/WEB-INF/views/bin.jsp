@@ -23,12 +23,13 @@
 			</thead>
 			<tbody>
 				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
-				<c:if test="${requestScope.memoList.deleted == 'y'}">
+				<c:if test="${memo.deleted.toString() == 'n'}">
 					<tr>
 						<td>${ memo.memoNo }</td>
 						<td>${ memo.memoTitle }</td>
 						<td>${ memo.writeDate }</td>
 						<td>${ memo.updateDate }</td>
+						
 					</tr>
 				</c:if>
 				</c:forEach>
