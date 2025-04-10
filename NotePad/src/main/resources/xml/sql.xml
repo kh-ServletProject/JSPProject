@@ -43,6 +43,21 @@
   	FROM MEMO
   	WHERE MEMO_NO = ?
   </entry>
+  
+  <!-- 중복하는ID 조회 -->
+  <entry key="findId">
+  	SELECT COUNT(*)
+  	FROM MEMBER
+  	WHERE MEMBER_ID = ?
+  </entry>
+  
+  <!-- memo를 추가 -->
+  <entry key="addMemo">
+  	INSERT INTO MEMO 
+  	VALUES (SEQ_MEMO.NEXTVAL , ?, ?, DEFAULT, DEFAULT, ?, DEFAULT
+  	)
+  
+  </entry>
 
 </properties>
 
