@@ -23,36 +23,34 @@ public class MultiBinServlet extends HttpServlet{
 			NotepadService service = new NotepadServiceImpl();
 			   
 			String[] memoNumbers = req.getParameterValues("memoNo");
-			
 			int result = 0;
 			int count = 0;
 			
-		   if (memoNumbers != null) {
-			      for (String memoNo : memoNumbers) {
-			        System.out.println("삭제할 메모번호: " + memoNo);
-			        result = service.memoGoBin(Integer.parseInt(memoNo));
-			        count ++;
-			      }
-			    }
-			
 			// session scope 객체 얻어오기
 			HttpSession session = req.getSession();
-			if(result > 0 && count == memoNumbers.length) {
-				session.setAttribute("message", count + "개를 휴지통으로 이동하였습니다!");
+			
+		   if (memoNumbers == null) {
+			   session.setAttribute("message", "한개 이상의 메모를 선택해주세요");
 				resp.sendRedirect("/login");
-				
 				return;
-			}
+		   }
+		   
+		for (String memoNo : memoNumbers) {
+		        System.out.println("삭제할 메모번호: " + memoNo);
+		    result = service.memoGoBin(Integer.parseInt(memoNo));
+		    count ++;
+		}
 			
-			
-			session.setAttribute("message", "휴지통으로 이동을 실패하였습니다.");
+		if(result > 0 && count == memoNumbers.length) {
+			session.setAttribute("message", count + "개를 휴지통으로 이동하였습니다!");
 			resp.sendRedirect("/login");
 			
+			return;
+		}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		  //  response.sendRedirect("/memo/list"); // 삭제 후 목록 페이지로 리다이렉트
 	}
 }
