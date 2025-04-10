@@ -27,7 +27,7 @@
 				<thead>
 					<tr>
 						<th id="selectAllMemo"  style="display:none;"><input id="checkAll" type="checkbox" >선택</th>
-						<th>번호</th>
+						<th id="numberHeader">번호</th>
 						<th>제목</th>
 						<th>생성 날짜</th>
 						<th>수정 날짜</th>
@@ -73,11 +73,11 @@
 		</div>
 		<form action="/memo/bin" method="post">
 		<button id="bin"><i class="fa-solid fa-trash"></i></button>
-	</form>
+	  </form>
 	
-	<form action="/addMemo">
-		<button id="addMemo"><i class="fa-regular fa-square-plus"></i></button>
-	</form>
+	  <form action="/addMemo">
+		 <button id="addMemo"><i class="fa-regular fa-square-plus"></i></button>
+	   </form>
 		
 	</div>
 

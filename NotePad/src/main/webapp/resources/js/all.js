@@ -1,40 +1,58 @@
-const goMemoList = document.querySelector("#goMemoList");
-
 document.addEventListener("DOMContentLoaded", () => {
-  
   const addMemoButton = document.getElementById("addMemo");
-  addMemoButton.addEventListener("mouseenter", () => {
+  const binButton = document.getElementById("bin");
+
+  // 메모 추가 버튼 툴팁
+  addMemoButton.addEventListener("mouseenter", (event) => {
     const tooltip = document.createElement("div");
-    tooltip.id = "tooltip";
+    tooltip.id = "tooltip-addMemo";
     tooltip.textContent = "메모 추가";
     tooltip.style.position = "absolute";
-    tooltip.style.bottom = "90px";
-    tooltip.style.right = "20px";
+    tooltip.style.top = `${event.target.getBoundingClientRect().top - 50}px`; // 버튼 위로 50px
+    tooltip.style.left = `${
+      event.target.getBoundingClientRect().left +
+      event.target.offsetWidth / 2 -
+      40
+    }px`; // 중앙 정렬
     tooltip.style.backgroundColor = "#333";
     tooltip.style.color = "white";
     tooltip.style.padding = "5px 10px";
     tooltip.style.borderRadius = "5px";
     tooltip.style.fontSize = "12px";
     tooltip.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
+    tooltip.style.zIndex = "1000";
     document.body.appendChild(tooltip);
   });
 
   addMemoButton.addEventListener("mouseleave", () => {
-    const tooltip = document.getElementById("tooltip");
+    const tooltip = document.getElementById("tooltip-addMemo");
     if (tooltip) tooltip.remove();
   });
 
-  // Smooth scroll to top when "목록으로" button is clicked
-  const goMemoListButton = document.getElementById("goMemoList");
-  if (goMemoListButton) {
-    goMemoListButton.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-});
+  // 휴지통 버튼 툴팁
+  binButton.addEventListener("mouseenter", (event) => {
+    const tooltip = document.createElement("div");
+    tooltip.id = "tooltip-bin";
+    tooltip.textContent = "휴지통으로";
+    tooltip.style.position = "absolute";
+    tooltip.style.top = `${event.target.getBoundingClientRect().top - 50}px`; // 버튼 위로 50px
+    tooltip.style.left = `${
+      event.target.getBoundingClientRect().left +
+      event.target.offsetWidth / 2 -
+      40
+    }px`; // 중앙 정렬
+    tooltip.style.backgroundColor = "#333";
+    tooltip.style.color = "white";
+    tooltip.style.padding = "5px 10px";
+    tooltip.style.borderRadius = "5px";
+    tooltip.style.fontSize = "12px";
+    tooltip.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
+    tooltip.style.zIndex = "1000";
+    document.body.appendChild(tooltip);
+  });
 
-goMemoList.addEventListener("click", () => {
-
-	location.href = "/login";
-
+  binButton.addEventListener("mouseleave", () => {
+    const tooltip = document.getElementById("tooltip-bin");
+    if (tooltip) tooltip.remove();
+  });
 });
