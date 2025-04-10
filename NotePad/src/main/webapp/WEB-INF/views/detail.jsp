@@ -24,7 +24,7 @@
 
 		<div>
 			<button id="updateBtn">수정</button>
-			<button id="deleteBtn">삭제</button>
+			<button id="goBinBtn">휴지통으로 보내기</button>
 		</div>
 
 	</div>

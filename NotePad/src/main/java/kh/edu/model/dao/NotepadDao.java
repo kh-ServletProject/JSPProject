@@ -20,6 +20,11 @@ public interface NotepadDao {
 	int memoDelete(Connection conn, int memoNo) throws Exception;
 	int signUp(String memberId, String memberPw, String memberName, Connection conn)throws Exception;
 
+
+	List<Memo> memberBinList(Connection conn, int memberNo) throws Exception;
+
+	int memoGoBin(Connection conn, int memoNo) throws Exception;
+
 	int findId(Connection conn, String memberId) throws Exception;
 
 	int addMemo(int memberNo, String memoTitle, String memoContent, Connection conn) throws Exception;

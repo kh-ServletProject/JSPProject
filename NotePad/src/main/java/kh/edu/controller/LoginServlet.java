@@ -78,6 +78,6 @@ public class LoginServlet extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("로그인 서블릿 GET 오류입니다.");
-		}
+    }
 	}
 }

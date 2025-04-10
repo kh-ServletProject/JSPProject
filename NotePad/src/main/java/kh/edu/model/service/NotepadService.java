@@ -37,6 +37,11 @@ public interface NotepadService {
 	 */
 	int signUp(String memberId, String memberPw, String memberName) throws Exception;
 
+
+	List<Memo> memberBinList(int memberNo) throws Exception;
+
+	int memoGoBin(int memoNo) throws Exception;
+
 	/**회원가입 하기전에 memberId가 중복되지않는지 조회
 	 * @param memberId
 	 * @return
@@ -47,5 +52,6 @@ public interface NotepadService {
 	
 
 	int addMemo(String memoTitle, String memoContent, int memberNo)throws Exception;
+
 
 }

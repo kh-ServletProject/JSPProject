@@ -25,6 +25,7 @@
 						<th>수정 날짜</th>
 						<%-- <th>삭제 여부</th> --%>
 					</tr>
+          
 				</thead>
 				<tbody>
 					<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
@@ -36,6 +37,11 @@
 							<%-- <td>${ memo.deleted }</td> --%>
 						</tr>
 					</c:forEach>
+          
+          <form action="/memo/bin" method="post">
+				<div><button id="bin">휴지통</button></div>
+				</form>
+          
 				</tbody>
 			</table>
 		</div>
@@ -52,7 +58,8 @@
 		</script>
 		
 		<c:remove var="message" scope="session"/>
-	</c:if>		
+	</c:if>
+	
 	
 	<script src="/resources/js/logout.js"></script>
 	<script src="/resources/js/fullView.js"></script>

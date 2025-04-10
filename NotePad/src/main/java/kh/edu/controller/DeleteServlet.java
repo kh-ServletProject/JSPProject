@@ -13,7 +13,7 @@ import kh.edu.model.service.NotepadService;
 import kh.edu.model.service.NotepadServiceImpl;
 
 @WebServlet("/memo/delete")
-public class DeleteServlet extends HttpServlet{
+public class DeleteServlet extends HttpServlet{ // 휴지통에서 완전히 삭제하기
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
