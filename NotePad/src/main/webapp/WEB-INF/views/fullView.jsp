@@ -11,8 +11,11 @@
 </head>
 <body>
 
-	<div>
-		<div id="veiwContent">
+	<div id="viewContainer">
+		<div id="search">
+			<input type="text" placeholder="검색할 제목을 입력하세요.">
+		</div>
+		<div id="content">
 			<table border=1>
 				<thead>
 					<tr>
@@ -36,7 +39,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="viewInfo">
+		<div id="info">
 			<div class="memberName"><span>${ member.memberName }</span></div>
 			<div class="memberLogout"><button id="logoutBtn">로그아웃</button></div>
 		</div>
