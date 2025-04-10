@@ -286,4 +286,24 @@ public class NotepadDAOImpl implements NotepadDao {
 
 		return result;
 	}
+
+	@Override
+	public int memoRollback(Connection conn, int memoNo) throws Exception {
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("memoRollback");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memoNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
 }

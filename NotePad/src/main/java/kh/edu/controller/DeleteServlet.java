@@ -16,37 +16,85 @@ import kh.edu.model.service.NotepadServiceImpl;
 public class DeleteServlet extends HttpServlet { // 휴지통에서 완전히 삭제하기
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String action = req.getParameter("action");
 
-		String[] memoNos = req.getParameterValues("memoNo");
-
-		HttpSession session = req.getSession();
-		NotepadService service = new NotepadServiceImpl();
-
-		int successCount = 0;
-
-		if (memoNos != null) {
-			for (String memoNoStr : memoNos) {
-				try {
-					int memoNo = Integer.parseInt(memoNoStr);
-					int result = service.memoDelete(memoNo);
-
-					if (result > 0) {
-						successCount++;
+		// DELETE
+		if("deleteBtn".equals(action)) {
+			System.out.println("딜리트버튼");
+			try {
+				
+				NotepadService service = new NotepadServiceImpl();
+				
+				String[] memoNumbers = req.getParameterValues("memoNo");
+				
+				int result = 0;
+				int count = 0;
+				
+				if (memoNumbers != null) {
+					for (String memoNo : memoNumbers) {
+						System.out.println("삭제할 메모번호: " + memoNo);
+						result = service.memoDelete(Integer.parseInt(memoNo));
+						count ++;
 					}
-
-				} catch (Exception e) {
-					e.printStackTrace();
 				}
+				
+				// session scope 객체 얻어오기
+				HttpSession session = req.getSession();
+				if(result > 0 && count == memoNumbers.length) {
+					session.setAttribute("message", count + "개를 완전히 삭제하였습니다!");
+					resp.sendRedirect("/login");
+					
+					return;
+				}
+				
+				
+				session.setAttribute("message", "삭제 실패하였습니다.");
+				resp.sendRedirect("/login");
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+		}else if("rollbackBtn".equals(action)) {
+			System.out.println("롤백버튼");
+			try {
+				NotepadService service = new NotepadServiceImpl();
+				   
+				String[] memoNumbers = req.getParameterValues("memoNo");
+				
+				int result = 0;
+				int count = 0;
+				
+			   if (memoNumbers != null) {
+				      for (String memoNo : memoNumbers) {
+				        System.out.println("복구할 메모번호: " + memoNo);
+				        result = service.memoRollback(Integer.parseInt(memoNo));
+				        count ++;
+				      }
+				    }
+				
+				// session scope 객체 얻어오기
+				HttpSession session = req.getSession();
+				if(result > 0 && count == memoNumbers.length) {
+					session.setAttribute("message", count + "개를 복구하였습니다!");
+					resp.sendRedirect("/login");
+					
+					return;
+				}
+				
+				
+				session.setAttribute("message", "복구 실패하였습니다.");
+				resp.sendRedirect("/login");
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
+		
 
-		// 삭제 결과 메시지 세션에 저장
-		String message = (successCount > 0) ? successCount + "개의 메모가 삭제되었습니다." : "삭제할 메모를 선택해주세요.";
-
-		session.setAttribute("message", message);
-
-		// 반복문 밖에서 리디렉션
-		resp.sendRedirect(req.getContextPath() + "/login"); // 적절한 목록 페이지로 이동
 	}
 }

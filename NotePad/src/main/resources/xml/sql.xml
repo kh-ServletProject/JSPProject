@@ -77,6 +77,12 @@
   	)
   
   </entry>
+  
+  <entry key="memoRollback">
+  	UPDATE MEMO
+	SET DELETED = 'n'
+	WHERE MEMO_NO = ?
+  </entry>
 
 </properties>
 
