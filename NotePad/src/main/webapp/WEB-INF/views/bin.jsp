@@ -23,7 +23,7 @@
 			</thead>
 			<tbody>
 				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
-				<c:if test="${requestScope.memoList.deleted == 'y'}">
+				<c:if test="${ memo.deleted.toString() == 'y'}">
 					<tr>
 						<td>${ memo.memoNo }</td>
 						<td>${ memo.memoTitle }</td>
@@ -39,6 +39,7 @@
 	<div>
 	<button id="deleteBtn">삭제</button>
 	</div>
-
+	
+	<script src="/resources/js/detail.js"></script>
 </body>
 </html>

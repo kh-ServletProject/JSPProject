@@ -26,7 +26,6 @@
 		TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO, DELETED
 		FROM MEMO
 		WHERE MEMBER_NO = ?
-		AND DELETED = 'n'
 	</entry>
   
  <!--  메모 수정  -->
