@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>이김강장 메모장</title>
+<link rel="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
 	<div>
@@ -18,21 +19,19 @@
 		<div>
 			<form action="/login" method="post">
 				<div>
-					<span>ID : <input type="text" name="memberId" required>
-					</span>
+					<span>ID : <input type="text" name="memberId" required></span>
 				</div>
 				<div>
 					<span>PW : <input type="password" name="memberPw" required></span>
 				</div>
-
-				<div>
-					<button>로그인</button>
+				<div id="buttonGroup">
+					<button id="loginBtn" type="submit">로그인</button>
+					<button id="signupBtn" type="button" onclick="window.location.href='/signup'">회원가입</button>
 				</div>
 			</form>
 		</div>
 	</div>
-	<button id="signupBtn">회원가입</button>
-  
+
 	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
@@ -40,6 +39,7 @@
 		<c:remove var="message" scope="session"/>
 	</c:if>
   
+	<script src="/resources/js/all.js"></script>
 	<script src="/resources/js/test.js"></script>
 </body>
 </html>

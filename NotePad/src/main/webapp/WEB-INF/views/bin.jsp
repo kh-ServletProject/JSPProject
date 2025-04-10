@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>${ member.memberName }님의 휴지통</title>
+<link rel ="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 			</thead>
 			<tbody>
 				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
-				<c:if test="${requestScope.memoList.deleted == 'y'}">
+				<c:if test="${requestScope.memo.deleted == 'y'}">
 					<tr>
 						<td>${ memo.memoNo }</td>
 						<td>${ memo.memoTitle }</td>
@@ -40,5 +41,6 @@
 	<button id="deleteBtn">삭제</button>
 	</div>
 
+	<script src="/resources/js/all.js"></script>
 </body>
 </html>

@@ -7,27 +7,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel ="stylesheet" href="/resources/css/detail.css">
 </head>
 <body>
-      <h1>${ member.memberName }님 의 메모장 추가</h1>
+      
 
-<form action="/addMemo" method="post">
-	<div>
-		제목 : <input type="text" name="memoTitle" required ><br>
-		내용 : <textarea rows="8" cols="8" name="memoContent" placeholder="상세내용을 작성해주세요" required></textarea><br>
-	</div>
-	
-	<button>완료</button>
-</form>
-
-	<c:if test="${not empty sessionScope.message}">
-  		
-  		<script>
-  			alert("${message}");
-  		</script>
-  		
-  		<c:remove var="message" scope="session"/>
-  	</c:if>
-
-</body>
-</html>
+			<form action="/addMemo" method="post">
+				<div id="formContainer">
+					<h3><span class="memberName">${ member.memberName }님 의 메모장 추가</span></h3>
+					<div class="form-group">
+						<label for="memoTitle">제목:</label>
+						<input type="text" id="memoTitle" name="memoTitle" required>
+					</div>
+					<div class="form-group">
+						<label for="memoContent">내용:</label>
+						<textarea id="memoContent" rows="4" cols="20" name="memoContent" placeholder="상세 내용을 작성해주세요" required></textarea>
+					</div>
+					<div class="form-group">
+						<button type="submit" id="submitBtn">완료</button>
+					</div>
+				</div>
+			</form>
+		
+			<c:if test="${not empty sessionScope.message}">
+				<script>
+					alert("${message}");
+				</script>
+				<c:remove var="message" scope="session"/>
+			</c:if>
+		
+			<script src="/resources/js/all.js"></script>
+		</body>
+		</html>

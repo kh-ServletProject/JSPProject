@@ -233,7 +233,7 @@ public class NotepadDAOImpl implements NotepadDao {
 			close(pstmt);
 		}
   
-  return memeoList;
+       return memoList;
 }
 
 	public int findId(Connection conn, String memberId) throws Exception {
