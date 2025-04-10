@@ -23,9 +23,10 @@
 	<entry key="memberMemoList">
 		SELECT MEMO_NO, MEMO_TITLE, MEMO_CONTENT,
 		TO_CHAR(WRITE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS WRITE_DATE,
-		TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO
+		TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO, DELETED
 		FROM MEMO
 		WHERE MEMBER_NO = ?
+		AND DELETED = 'n'
 	</entry>
   
  <!--  메모 수정  -->
@@ -42,6 +43,26 @@
   	FROM MEMO
   	WHERE MEMO_NO = ?
   </entry>
+  
+  <entry key="memoDelete">
+  	DELETE FROM MEMO
+  	WHERE MEMO_NO = ?
+  </entry>
+  
+  <entry key="memoBin">
+  	SELECT MEMO_NO, MEMO_TITLE, MEMO_CONTENT,
+	TO_CHAR(WRITE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS WRITE_DATE,
+	TO_CHAR(UPDATE_DATE, 'YYYY-MM-DD HH24:MI:SS') AS UPDATE_DATE, MEMBER_NO
+	FROM MEMO
+	WHERE MEMBER_NO = ?
+	AND DELETED = 'y'
+  </entry>
+  
+  <entry key="goBin">
+		UPDATE MEMO
+		SET DELETED = 'y'
+		WHERE MEMO_NO = ?
+	</entry>
 
 </properties>
 

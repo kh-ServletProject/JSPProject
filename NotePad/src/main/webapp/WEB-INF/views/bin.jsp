@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${ member.memberName }님의 메모장</title>
+<title>${ member.memberName }님의 휴지통</title>
 </head>
 <body>
 
@@ -18,33 +18,27 @@
 					<th>번호</th>
 					<th>제목</th>
 					<th>생성 날짜</th>
-					<th>수정 날짜</th>				
+					<th>수정 날짜</th>					
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
+				<c:if test="${requestScope.memoList.deleted == 'y'}">
 					<tr>
 						<td>${ memo.memoNo }</td>
-						<td><a href="/memo/detail?memoNo=${ memo.memoNo }">${ memo.memoTitle }</a></td>
+						<td>${ memo.memoTitle }</td>
 						<td>${ memo.writeDate }</td>
 						<td>${ memo.updateDate }</td>
 					</tr>
+				</c:if>
 				</c:forEach>
-				
-				<form action="/memo/bin" method="post">
-				<div><button id="bin">휴지통</button></div>
-				</form>
 			</tbody>
 		</table>
 	</div>
-
-<c:if test="${not empty sessionScope.message}">
-		<script>
-			alert("${message}");
-		</script>
-		
-		<c:remove var="message" scope="session"/>
-	</c:if>
+	
+	<div>
+	<button id="deleteBtn">삭제</button>
+	</div>
 
 </body>
 </html>

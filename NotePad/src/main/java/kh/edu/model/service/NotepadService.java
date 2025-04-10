@@ -29,4 +29,8 @@ public interface NotepadService {
 	int memoUpdate(int memoNo, String title, String content) throws Exception;
 	int signUp(String memberId, String memberPw, String memberName) throws Exception;
 
+	List<Memo> memberBinList(int memberNo) throws Exception;
+
+	int memoGoBin(int memoNo) throws Exception;
+
 }

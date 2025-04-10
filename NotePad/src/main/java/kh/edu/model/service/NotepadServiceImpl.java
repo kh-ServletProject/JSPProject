@@ -110,6 +110,35 @@ public class NotepadServiceImpl implements NotepadService {
 		close(conn);
 		return result;
 	}
+
+	@Override
+	public List<Memo> memberBinList(int memberNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<Memo> memoList = dao.memberBinList(conn, memberNo);
+		
+		close(conn);
+		
+		return memoList;
+		
+	}
+
+	@Override
+	public int memoGoBin(int memoNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.memoGoBin(conn, memoNo);
+		
+		if(result > 0 ) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		
+		return result;
+	}
 	
 	
 	

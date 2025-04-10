@@ -53,6 +53,27 @@ public class LoginServlet extends HttpServlet{
 			e.printStackTrace();
 			System.out.println("로그인 서블릿 오류입니다.");
 		}
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		try {
+			// 서비스 객체 생성
+			NotepadService service = new NotepadServiceImpl();
+			
+			Member loginMem = (Member)req.getSession().getAttribute("member");
+			
+			// 로그인한 회원의 메모 리스트를 가져오는 서비스 메서드 호출
+			List<Memo> memoList = service.memberMemoList(loginMem.getMemberNo());
+			
+			// request에 가져온 메모 리스트 저장
+			req.setAttribute("memoList", memoList);
+			
+			req.getRequestDispatcher("/WEB-INF/views/fullView.jsp").forward(req, resp);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

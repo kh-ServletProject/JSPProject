@@ -86,6 +86,7 @@ public class NotepadDAOImpl implements NotepadDao {
 							.writeDate(rs.getString(4))
 							.updateDate(rs.getString(5))
 							.memberNo(memberNo)
+							.deleted(rs.getString(7).charAt(0))
 							.build());
 			}
 			
@@ -195,6 +196,64 @@ public class NotepadDAOImpl implements NotepadDao {
 			close(pstmt);
 		}
 		
+		
+		return result;
+	}
+
+	@Override
+	public List<Memo> memberBinList(Connection conn, int memberNo) throws Exception {
+		
+		List<Memo> memoList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("memoBin");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(!rs.next()) {
+				memoList.add(Memo.builder()
+						.memoNo(rs.getInt(1))
+						.memoTitle(rs.getString(2))
+						.memoContent(rs.getString(3))
+						.writeDate(rs.getString(4))
+						.updateDate(rs.getString(5))
+						.memberNo(memberNo)
+						.build());
+			}
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return null;
+	}
+
+	@Override
+	public int memoGoBin(Connection conn, int memoNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("goBin");
+			
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, memoNo);
+				
+				result = pstmt.executeUpdate();
+				System.out.println("result = " + result);
+			
+		} finally {
+			
+			close(pstmt);
+		}
 		
 		return result;
 	}
