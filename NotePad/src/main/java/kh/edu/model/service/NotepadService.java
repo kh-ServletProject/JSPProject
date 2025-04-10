@@ -1,11 +1,15 @@
 package kh.edu.model.service;
 
 import java.util.List;
-
 import kh.edu.model.dto.Member;
 import kh.edu.model.dto.Memo;
 
 public interface NotepadService {
+
+
+	Memo memoDetail(int memoNo) throws Exception;
+
+	int memoDelete(int memoNo) throws Exception;
 
 	/** 로그인 회원 조회
 	 * @param memberId 멤버 아이디

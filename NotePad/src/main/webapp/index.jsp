@@ -13,6 +13,7 @@
 			<form action="/login" method="post">
 				<div><span>ID : <input type="text" name="memberId" required> </span> </div>
 				<div><span>PW : <input type="password" name="memberPw" required></span> </div>
+
 				<div><button>로그인</button> </div>
 			</form>
 		</div>

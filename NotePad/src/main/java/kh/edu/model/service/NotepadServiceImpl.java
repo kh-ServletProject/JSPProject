@@ -1,6 +1,7 @@
 package kh.edu.model.service;
 
 import java.sql.Connection;
+
 import java.util.List;
 
 import static kh.edu.common.JDBCTemplate.*;
@@ -52,4 +53,37 @@ public class NotepadServiceImpl implements NotepadService {
 		
 		return result;
   }
+  
+  @Override
+	public Memo memoDetail(int memoNo) throws Exception {
+		
+		
+			Connection conn = getConnection();
+			
+			NotepadDao dao = new NotepadDAOImpl();
+			
+			Memo memo = dao.memoDetail(conn, memoNo);
+			
+			close(conn);
+			
+			return memo;
+			
+	}
+
+	@Override
+	public int memoDelete(int memoNo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		NotepadDao dao = new NotepadDAOImpl();
+		
+		int result = dao.memoDelete(conn, memoNo);
+		
+		if(result > 0) JDBCTemplate.commit(conn);
+		else		   JDBCTemplate.rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
 }

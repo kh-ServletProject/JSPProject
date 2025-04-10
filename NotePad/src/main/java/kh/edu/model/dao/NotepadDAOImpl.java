@@ -120,4 +120,59 @@ public class NotepadDAOImpl implements NotepadDao {
 		
 		return result;
   }
+  
+  @Override
+	public Memo memoDetail(Connection conn, int memoNo) throws Exception {
+		
+		Memo memo = null;
+		
+		try {
+			
+			String sql = prop.getProperty("memoDetail");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memoNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				memo = Memo.builder().
+						memoNo(memoNo).
+						memoTitle(rs.getString("MEMO_TITLE")).
+						memoContent(rs.getString("MEMO_CONTENT")).
+						writeDate(rs.getString("WRITE_DATE")).
+						updateDate(rs.getString("UPDATE_DATE")).build();
+						
+			}
+			
+			
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		return memo;
+		
+	}
+
+	@Override
+	public int memoDelete(Connection conn, int memoNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("memoDelete");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memoNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
