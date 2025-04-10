@@ -33,6 +33,7 @@
 						<td>${ memo.memoTitle }</td>
 						<td>${ memo.writeDate }</td>
 						<td>${ memo.updateDate }</td>
+						
 					</tr>
 				</c:if>
 				</c:forEach>
