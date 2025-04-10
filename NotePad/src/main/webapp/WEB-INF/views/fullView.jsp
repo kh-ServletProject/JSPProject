@@ -10,6 +10,8 @@
 <title>${ member.memberName }님의 메모장</title>
 <link rel ="stylesheet" href="/resources/css/detail.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
 <body>
 
@@ -55,9 +57,9 @@
           	<button id="multiSelect">여러 항목 삭제</button>
          	 
 					<form action="/memo/bin" method="post">
-						<div>
+						
 							<button id="bin"></button>
-						</div>
+						
 					</form>
           
 				</tbody>
@@ -77,7 +79,7 @@
 	</form>
 	
 	<form action="/addMemo">
-		<button id="addMemo"><i class="fa-solid fa-file-lines"></i></button>
+		<button id="addMemo"><i class="fa-regular fa-square-plus"></i></button>
 	</form>
 		
 	</div>

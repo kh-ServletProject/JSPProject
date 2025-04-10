@@ -23,9 +23,10 @@
 						<label for="memoContent">내용:</label>
 						<textarea id="memoContent" rows="4" cols="20" name="memoContent" placeholder="상세 내용을 작성해주세요" required></textarea>
 					</div>
-					<div class="form-group">
-						<button type="submit" id="submitBtn">완료</button>
-					</div>
+					<div id="buttonGroup">
+						<button type="submit" id="submitBtn" class="btn-group-item">완료</button>
+						<button type="button" id="goMemoList" class="btn-group-item">목록으로</button>
+				</div>
 				</div>
 			</form>
 		
