@@ -1,7 +1,8 @@
 const addMemo = document.querySelector("#addMemo");
 
 const multiSelect = document.querySelector("#multiSelect");
-const checkboxes = document.querySelectorAll(".multiCheckbox");
+const checkTds = document.querySelectorAll(".chkTd");
+const chekedStatus = document.querySelectorAll(".chekedStatus");
 const selectAllMemo = document.querySelector("#selectAllMemo");
 const multiBin = document.querySelector("#multiBin");
 
@@ -12,16 +13,23 @@ addMemo.addEventListener("click", ()=>{
   location.href = "/addMemo";
 
 });
+
+// 여러 항목 삭제 선택 시 
 multiSelect.addEventListener("click", () => {
 	isVisible = !isVisible;
   selectAllMemo.style.display = isVisible ? "inline-block" : "none";
   multiBin.style.display = isVisible ? "inline-block" : "none";
 
-  checkboxes.forEach(cb => {
-    cb.style.display = isVisible ? "inline-block" : "none";
-    cb.checked = isVisible;
+  // 모든 메모 체크박스 항목들 받아와서 화면에 보임/숨김 설정
+  checkTds.forEach(chkTd => {
+    chekedStatus.forEach(chk => {
+      chk.checked = false; // 숨길 때만 체크 해제
+    });
+    chkTd.style.display = isVisible ? "inline-block" : "none";
   });
-
+  
+  // 버튼 토글
+  multiSelect.textContent = isVisible? "취소" : "여러 항목 삭제"
 });
 
 const logoutBtn = document.querySelector("#logoutBtn");

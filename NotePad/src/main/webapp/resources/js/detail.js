@@ -1,4 +1,5 @@
 const goMemoList = document.querySelector("#goMemoList");
+const memoNo = new URLSearchParams(location.search).get("memoNo");
 const memberId = new URLSearchParams(location.search).get("memberId");
 const updateBtn = document.querySelector("#updateBtn");
 const goBinBtn = document.querySelector("#goBinBtn");
