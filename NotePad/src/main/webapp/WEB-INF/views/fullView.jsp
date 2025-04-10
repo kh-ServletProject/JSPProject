@@ -44,7 +44,8 @@
 			<div class="memberLogout"><button id="logoutBtn">로그아웃</button></div>
 		</div>
 	</div>
-	
+	<button id="addMemo">MEMO추가</button>
+  
 	<c:if test="${not empty sessionScope.message}">
 		<script>
 			alert("${message}");
@@ -54,5 +55,6 @@
 	</c:if>		
 	
 	<script src="/resources/js/logout.js"></script>
+	<script src="/resources/js/fullView.js"></script>
 </body>
 </html>
