@@ -29,4 +29,6 @@ public interface NotepadDao {
 
 	int addMemo(int memberNo, String memoTitle, String memoContent, Connection conn) throws Exception;
 
+	int memoRollback(Connection conn, int memoNo) throws Exception;
+
 }

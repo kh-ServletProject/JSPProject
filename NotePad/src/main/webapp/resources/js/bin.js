@@ -1,5 +1,6 @@
 const deleteBtn = document.querySelector("#deleteBtn");
 const allselect = document.querySelector("#allselect");
+const rollbackBtn = document.querySelector("#rollbackBtn");
 
 deleteBtn.addEventListener("click", ()=> {
 
@@ -30,6 +31,21 @@ allselect.addEventListener("click", () => {
     chk.checked = isChecked;
   });
 
-  // 버튼 텍스트도 토글하면 UX가 좋아져요!
   allselect.textContent = isChecked ? "전체 해제" : "전체 선택";
+});
+
+rollbackBtn.addEventListener("click", function(e) {
+  
+  const checkboxes = document.querySelectorAll(".checkboxBin:checked");
+
+    if (checkboxes.length === 0) {
+      alert("복구할 항목을 선택하세요.");
+      return;
+    }
+
+    // 확인창
+    if (confirm("선택한 메모를 복구하시겠습니까?")) {
+      location.href = "/memo/rollback";
+    }
+
 });

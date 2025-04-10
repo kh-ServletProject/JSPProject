@@ -29,19 +29,30 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="memo" items="${ requestScope.memoList }" varStatus="vs">
-				<c:if test="${ memo.deleted.toString() == 'y'}">
+				<form action="/memo/delete" method="post" id="multiBinForm">
+					<c:forEach var="memo" items="${ requestScope.memoList }"
+						varStatus="vs">
+						<c:if test="${ memo.deleted.toString() == 'y'}">
 
-					<tr>
-						<td>${ memo.memoNo }</td>
-						<td>${ memo.memoTitle }</td>
-						<td>${ memo.writeDate }</td>
-						<td>${ memo.updateDate }</td>
-						
-					</tr>
-				</c:if>
-				</c:forEach>
-				<button id="deleteBtn">삭제</button>
+							<tr>
+								<td><input type="checkbox" class="checkboxBin"
+									name="memoNo" value="${memo.memoNo}" /></td>
+								<td>${ memo.memoNo }</td>
+								<td>${ memo.memoTitle }</td>
+								<td>${ memo.writeDate }</td>
+								<td>${ memo.updateDate }</td>
+
+							</tr>
+						</c:if>
+					</c:forEach>
+					<button id="deleteBtn" value="deleteBtn" name="action">영구삭제</button>
+					<button id="rollbackBtn" value="rollbackBtn" name="action">복구</button>
+				</form>
+
+				<!-- 복구 폼 -->
+				<form action="/memo/rollback" method="post" id="rollbackForm">
+					
+				</form>
 			</tbody>
 		</table>
 	</div>
