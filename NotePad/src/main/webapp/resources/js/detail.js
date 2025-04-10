@@ -6,3 +6,4 @@ deleteBtn.addEventListener("click", ()=> {
 
   location.href = "/memo/delete?memoNo=" + todoNo;
 });
+

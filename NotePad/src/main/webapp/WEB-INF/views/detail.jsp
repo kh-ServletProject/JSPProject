@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<h1>#{sessionScope.member.memberName}</h1>
+	<h1>${sessionScope.member.memberName}</h1>
 
 	<h1>${memo.memoTitle}</h1>
 

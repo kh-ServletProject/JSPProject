@@ -33,6 +33,15 @@
 			</tbody>
 		</table>
 	</div>
-
+	<button id="addMemo">MEMO추가</button>
+		
+	<c:if test="${not empty sessionScope.message}">
+		<script>
+			alert("${message}");
+		</script>
+		
+		<c:remove var="message" scope="session"/>
+	</c:if>
+	<script src="/resources/js/fullView.js"></script>
 </body>
 </html>

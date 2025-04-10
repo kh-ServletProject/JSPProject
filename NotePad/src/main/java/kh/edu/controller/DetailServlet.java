@@ -12,7 +12,7 @@ import kh.edu.model.dto.Memo;
 import kh.edu.model.service.NotepadService;
 import kh.edu.model.service.NotepadServiceImpl;
 
-@WebServlet("/note/detail")
+@WebServlet("/memo/detail")
 public class DetailServlet extends HttpServlet{
 	
 	@Override
