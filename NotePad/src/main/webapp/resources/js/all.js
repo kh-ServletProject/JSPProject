@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
   addMemoButton.addEventListener("mouseenter", function(event) {
       const rect = addMemoButton.getBoundingClientRect();
       addMemoTooltip.style.left = `${rect.left + window.scrollX}px`;
-      addMemoTooltip.style.top = `${rect.top + window.scrollY - addMemoTooltip.offsetHeight - 5}px`;
+      addMemoTooltip.style.top = `${rect.top + window.scrollY - addMemoTooltip.offsetHeight - 50}px`;
       addMemoTooltip.style.display = "block";
   });
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
   bin2Button.addEventListener("mouseenter", function(event) {
       const rect = bin2Button.getBoundingClientRect();
       bin2Tooltip.style.left = `${rect.left + window.scrollX}px`;
-      bin2Tooltip.style.top = `${rect.top + window.scrollY - bin2Tooltip.offsetHeight - 5}px`;
+      bin2Tooltip.style.top = `${rect.top + window.scrollY - bin2Tooltip.offsetHeight - 50}px`;
       bin2Tooltip.style.display = "block";
   });
 

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib prefix="fn"
@@ -44,6 +45,7 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
     </form>
 
     <script>
+
       document.getElementById("homeBtn").addEventListener("click", function () {
         window.location.href = "/"; // 메인 페이지 경로로 리다이렉트
       });
@@ -80,6 +82,7 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
       });
     </script>
 
+
     <c:if test="${not empty sessionScope.message}">
       <script>
         alert("${message}");
@@ -88,7 +91,8 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
       <c:remove var="message" scope="session" />
     </c:if>
 
-    <script src="/resources/js/all.js"></script>
-    <script src="/resources/js/test.js"></script>
-  </body>
+
+	<script src="/resources/js/all.js"></script>
+	<script src="/resources/js/test.js"></script>
+</body>
 </html>

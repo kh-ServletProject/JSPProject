@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member {
-	private int memberNo;
-	private String memberId;
-	private String memberPw;
-	private String memberName;
-
+	private int memberNo;		// 회원 번호
+	private String memberId;	// 회원 아이디
+	private String memberPw;	// 회원 비밀번호
+	private String memberName;	// 회원 이름
 }

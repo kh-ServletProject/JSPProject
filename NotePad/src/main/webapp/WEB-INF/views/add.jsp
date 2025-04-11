@@ -1,4 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 pageEncoding="UTF-8"%> <%@ taglib prefix="c"
 uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fn"
 uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -50,7 +54,7 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
       <c:remove var="message" scope="session" />
     </c:if>
 
-    <script src="/resources/js/all.js"></script>
+  
     <script src="/resources/js/detail.js"></script>
   </body>
 </html>

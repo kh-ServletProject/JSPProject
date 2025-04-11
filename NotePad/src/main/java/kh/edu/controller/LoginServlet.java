@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 				resp.sendRedirect("/");
 				return;
 			}
-      
+
 			// 일치하는 회원이 있다면 session에 Member 객체 저장
 			req.getSession().setAttribute("member", loginMem);
 

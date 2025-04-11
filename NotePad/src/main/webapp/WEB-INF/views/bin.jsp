@@ -3,6 +3,7 @@ prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> <%@ page
 language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8" />
 
@@ -101,13 +102,11 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
               복구
             </button>
           </form>
-
-          <!-- 복구 폼 -->
           <form action="/memo/rollback" method="post" id="rollbackForm"></form>
         </tbody>
       </table>
     </div>
-
+    
     <div>
       <button type="button" id="goMemoList">목록으로</button>
     </div>
@@ -116,3 +115,4 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <script src="/resources/js/bin.js"></script>
   </body>
 </html>
+

@@ -15,3 +15,4 @@ goBinBtn.addEventListener("click", () => {
 updateBtn.addEventListener("click", () => {
   location.href = "/memo/update?memoNo=" + memoNo;
 });
+

@@ -11,10 +11,12 @@ let isVisible = false;
 
 addMemo.addEventListener("click", () => {
   location.href = "/addMemo";
+
 });
 
 // 여러 항목 삭제 선택 시
 multiSelect.addEventListener("click", () => {
+
   isVisible = !isVisible;
   selectAllMemo.style.display = isVisible ? "inline-block" : "none";
   multiBin.style.display = isVisible ? "inline-block" : "none";
@@ -31,28 +33,33 @@ multiSelect.addEventListener("click", () => {
 
   // 버튼 토글
   multiSelect.textContent = isVisible ? "취소" : "여러 항목 삭제";
+
 });
 
 const logoutBtn = document.querySelector("#logoutBtn");
 
 logoutBtn.addEventListener("click", () => {
+
   location.href = "/logout";
+
 });
 
 // 메모 모두 선택(체크박스 체크)
 selectAllMemo.addEventListener("click", () => {
-  isVisible = !isVisible;
-  checkAll.checked = isVisible;
+	isVisible = !isVisible;
+	checkAll.checked = isVisible;
 
-  chekedStatus.forEach((chk) => {
-    chk.checked = isVisible;
-  });
+	chekedStatus.forEach(chk => {
+		chk.checked = isVisible;
+	});
+
 });
 
 // fullView.jsp 내의 input 태그
 const searchInput = document.querySelector(".searchInput");
 
 // input 태그에 keyup이 일어난 경우
+
 searchInput.addEventListener("keyup", (e) => {
   // input 태그 내의 value 값
   let keyword = searchInput.value;
@@ -77,4 +84,5 @@ searchInput.addEventListener("keyup", (e) => {
       td.parentElement.style.display = "table-row";
     }
   }
+
 });
