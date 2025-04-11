@@ -1,58 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
+  // Add tooltip for the addMemo button
   const addMemoButton = document.getElementById("addMemo");
-  const binButton = document.getElementById("bin");
+  const addMemoTooltip = document.createElement("div");
+  addMemoTooltip.textContent = "메모 추가하기";
+  addMemoTooltip.id = "tooltip-addMemo";
+  document.body.appendChild(addMemoTooltip);
 
-  // 메모 추가 버튼 툴팁
-  addMemoButton.addEventListener("mouseenter", (event) => {
-    const tooltip = document.createElement("div");
-    tooltip.id = "tooltip-addMemo";
-    tooltip.textContent = "메모 추가";
-    tooltip.style.position = "absolute";
-    tooltip.style.top = `${event.target.getBoundingClientRect().top - 50}px`; // 버튼 위로 50px
-    tooltip.style.left = `${
-      event.target.getBoundingClientRect().left +
-      event.target.offsetWidth / 2 -
-      40
-    }px`; // 중앙 정렬
-    tooltip.style.backgroundColor = "#333";
-    tooltip.style.color = "white";
-    tooltip.style.padding = "5px 10px";
-    tooltip.style.borderRadius = "5px";
-    tooltip.style.fontSize = "12px";
-    tooltip.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
-    tooltip.style.zIndex = "1000";
-    document.body.appendChild(tooltip);
+  addMemoButton.addEventListener("mouseenter", function(event) {
+      const rect = addMemoButton.getBoundingClientRect();
+      addMemoTooltip.style.left = `${rect.left + window.scrollX}px`;
+      addMemoTooltip.style.top = `${rect.top + window.scrollY - addMemoTooltip.offsetHeight - 5}px`;
+      addMemoTooltip.style.display = "block";
   });
 
-  addMemoButton.addEventListener("mouseleave", () => {
-    const tooltip = document.getElementById("tooltip-addMemo");
-    if (tooltip) tooltip.remove();
+  addMemoButton.addEventListener("mouseleave", function() {
+      addMemoTooltip.style.display = "none";
   });
 
-  // 휴지통 버튼 툴팁
-  binButton.addEventListener("mouseenter", (event) => {
-    const tooltip = document.createElement("div");
-    tooltip.id = "tooltip-bin";
-    tooltip.textContent = "휴지통으로";
-    tooltip.style.position = "absolute";
-    tooltip.style.top = `${event.target.getBoundingClientRect().top - 50}px`; // 버튼 위로 50px
-    tooltip.style.left = `${
-      event.target.getBoundingClientRect().left +
-      event.target.offsetWidth / 2 -
-      40
-    }px`; // 중앙 정렬
-    tooltip.style.backgroundColor = "#333";
-    tooltip.style.color = "white";
-    tooltip.style.padding = "5px 10px";
-    tooltip.style.borderRadius = "5px";
-    tooltip.style.fontSize = "12px";
-    tooltip.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
-    tooltip.style.zIndex = "1000";
-    document.body.appendChild(tooltip);
+  // Add tooltip for the bin2 button
+  const bin2Button = document.getElementById("bin2");
+  const bin2Tooltip = document.createElement("div");
+  bin2Tooltip.textContent = "휴지통 보기";
+  bin2Tooltip.id = "tooltip-bin";
+  document.body.appendChild(bin2Tooltip);
+
+  bin2Button.addEventListener("mouseenter", function(event) {
+      const rect = bin2Button.getBoundingClientRect();
+      bin2Tooltip.style.left = `${rect.left + window.scrollX}px`;
+      bin2Tooltip.style.top = `${rect.top + window.scrollY - bin2Tooltip.offsetHeight - 5}px`;
+      bin2Tooltip.style.display = "block";
   });
 
-  binButton.addEventListener("mouseleave", () => {
-    const tooltip = document.getElementById("tooltip-bin");
-    if (tooltip) tooltip.remove();
+  bin2Button.addEventListener("mouseleave", function() {
+      bin2Tooltip.style.display = "none";
   });
 });

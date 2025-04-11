@@ -11,9 +11,10 @@ uri="http://java.sun.com/jsp/jstl/functions"%>
   </head>
 
   <body>
+    <br>
     <h1>NOTE PAD 회원 가입</h1>
     <form action="/signup" method="post" id="signupForm">
-      <div>
+      <div class="signup">
         생성할 ID :
         <input
           type="text"

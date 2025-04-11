@@ -135,7 +135,7 @@ h1 {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: #8b4513; /* 갈색 버튼 */
+  background-color: #8b4513; 
   color: white;
   font-size: 30px;
   width: 60px;
@@ -148,11 +148,11 @@ h1 {
 }
 
 #addMemo:hover {
-  background-color: #6b3510; /* hover 시 더 어두운 갈색 */
+  background-color: #6b3510; 
 }
 
 .memberLogout button {
-  background-color: #a0522d; /* 어두운 갈색 */
+  background-color: #a0522d; 
   font-size: 20px;
   font-weight: bold;
   line-height: 1.5;
@@ -165,11 +165,11 @@ h1 {
 }
 
 .memberLogout button:hover {
-  background-color: #5a2e1b; /* hover 시 더 어두운 갈색 */
+  background-color: #5a2e1b; 
 }
 
 #signupBtn {
-  background-color: #a0522d; /* 어두운 갈색 */
+  background-color: #a0522d; 
   color: white;
   padding: 15px 30px;
   font-size: 18px;
@@ -180,7 +180,7 @@ h1 {
 }
 
 #signupBtn:hover {
-  background-color: #5a2e1b; /* hover 시 더 어두운 갈색 */
+  background-color: #5a2e1b; 
 }
 
 #buttonGroup {
@@ -191,7 +191,7 @@ h1 {
 }
 
 #loginBtn {
-  background-color: #8b4513; /* 갈색 버튼 */
+  background-color: #8b4513; 
   color: white;
   padding: 15px 30px;
   font-size: 18px;
@@ -201,32 +201,39 @@ h1 {
   transition: background-color 0.3s;
 }
 
+#loginBtn:hover{
+  background-color: #6b3510;
+}
+
 #homeBtn {
-  background-color: #8b4513; /* 갈색 버튼 */
+  background-color: #8b4513; 
   color: white;
+}
+#homeBtn:hover{
+  background-color: #6b3510;
 }
 
 #submitBtn {
-  background-color: #8b4513; /* 갈색 버튼 */
+  background-color: #8b4513; 
   color: white;
   padding: 12px 20px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100%;
+  width: 20%;
 }
+
 
 #submitBtn:hover {
-  background-color: #6b3510; /* hover 시 더 어두운 갈색 */
+  background-color: #6b3510; 
 }
 
-#bin {
+#bin2 {
   position: absolute;
   bottom: 20px;
   right: 100px;
-  background-color: #a0522d; /* 어두운 갈색 */
+  background-color: #a0522d; 
   color: white;
   font-size: 30px;
   width: 60px;
@@ -239,37 +246,34 @@ h1 {
 }
 
 #bin:hover {
-  background-color: #5a2e1b; /* hover 시 더 어두운 갈색 */
+  background-color: #5a2e1b; 
 }
 
 td a {
-  color: #d2691e; /* 밝은 갈색 글씨 */
+  color: #d2691e; 
   text-decoration: underline;
 }
 
 td a:hover {
-  color: #a0522d; /* hover 시 더 어두운 갈색 */
+  color: #a0522d; 
   text-decoration: none;
 }
 
-.error {
-  color: red;
-}
+
 
 #logoutBtn {
   writing-mode: horizontal-tb;
   text-orientation: mixed;
-  display: inline-block; /* 기본 버튼 스타일 */
-  width: auto; /* 콘텐츠에 맞는 너비 */
-  height: auto; /* 콘텐츠에 맞는 높이 */
-  padding: 10px 20px; /* 좌우 패딩을 더 넓게 설정 */
-  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  display: inline-block; 
+  width: auto; 
+  height: auto; 
+  padding: 10px 20px; 
+  white-space: nowrap; 
   text-align: center;
 }
 
 #tooltip-bin,
 #tooltip-addMemo {
-  z-index: 1000;
   position: absolute;
   background-color: #333;
   color: white;
@@ -277,39 +281,38 @@ td a:hover {
   border-radius: 5px;
   font-size: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: none; 
+  pointer-events: none; 
+  z-index: 1000;
 }
 
 #multiSelect,
 #multiBin {
-  padding: 15px 12px; /* 버튼 내부 패딩 */
+  padding: 15px 12px; 
   margin: 10px 10px;
 }
 
-#cancelButton {
-  padding: 10px 30px; /* 버튼 내부 패딩 */
-}
-
 table th {
-  writing-mode: horizontal-tb; /* 가로쓰기 */
-  text-orientation: mixed; /* 텍스트가 기본 방향으로 표시 */
-  white-space: nowrap; /* 줄바꿈 방지 */
-  text-align: center; /* 텍스트 가운데 정렬 */
-  vertical-align: middle; /* 세로 가운데 정렬 */
+  writing-mode: horizontal-tb; 
+  text-orientation: mixed; 
+  white-space: nowrap; 
+  text-align: center; 
+  vertical-align: middle; 
   border-collapse: collapse;
 }
 
 /* 번호 헤더에만 특정 스타일 적용 */
 table th#numberHeader {
-  writing-mode: horizontal-tb; /* 가로쓰기 */
-  text-orientation: mixed; /* 기본 텍스트 방향 */
+  writing-mode: horizontal-tb; 
+  text-orientation: mixed; 
   border-collapse: collapse;
 }
 
 table td input[type="checkbox"] {
-  margin: 0; /* 체크박스의 기본 마진 제거 */
-  display: block; /* 체크박스를 블록 요소로 설정 */
-  margin-left: auto; /* 좌측 정렬 */
-  margin-right: auto; /* 우측 정렬 */
+  margin: 0; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
   border-collapse: collapse;
 }
 
@@ -322,4 +325,36 @@ table td input[type="checkbox"] {
 .chekedStatus{
 	justify-content: center;
 	align-items: center;
+}
+
+.signup{
+  
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  font-weight: bold;
+  font-size: 20px;
+}
+.error {
+  color: red;
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: 15px;
+}
+
+#signupForm input,
+#signupForm textarea{
+  height: 50px;
+  padding: 10px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+#memoTitle{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#memoContent{
+  margin-bottom: 10px;
+  margin-top: 10px;
 }

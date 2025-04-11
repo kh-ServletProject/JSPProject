@@ -15,7 +15,7 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
       <div>
         <form action="/login" method="post">
           <div>
-            <span
+            <span style="font-weight: bold;"
               >ID :
               <input
                 type="text"
@@ -25,14 +25,13 @@ language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
             /></span>
           </div>
           <div>
-            <span
+            <span style="font-weight: bold;"
               >PW :
               <input
                 type="password"
                 name="memberPw"
                 required
-                placeholder="비밀번호를 입력해주세요."
-            /></span>
+                placeholder="비밀번호를 입력해주세요."></span>
           </div>
 
           <div id="buttonGroup">

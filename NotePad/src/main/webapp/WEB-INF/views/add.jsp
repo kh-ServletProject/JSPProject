@@ -18,11 +18,11 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
           >
         </h3>
         <div class="form-group">
-          <label for="memoTitle">제목:</label>
-          <input type="text" id="memoTitle" name="memoTitle" required />
+          <label for="memoTitle" style="font-weight: bold;">제목:</label>
+          <input type="text" id="memoTitle" name="memoTitle" required placeholder="제목을 작성해주세요."/>
         </div>
         <div class="form-group">
-          <label for="memoContent">내용:</label>
+          <label for="memoContent" style="font-weight: bold;">내용:</label>
           <textarea
             id="memoContent"
             rows="4"
@@ -51,5 +51,6 @@ uri="http://java.sun.com/jsp/jstl/functions" %>
     </c:if>
 
     <script src="/resources/js/all.js"></script>
+    <script src="/resources/js/detail.js"></script>
   </body>
 </html>

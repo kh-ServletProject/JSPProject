@@ -56,7 +56,6 @@
 	          	<button id="multiSelect">여러 항목 삭제</button>
 	         	 
 				<form action="/memo/bin" method="post">
-					<button id="bin"></button>
 				</form>
 	          
 			</tbody>
@@ -72,7 +71,7 @@
 			</div>
 		</div>
 		<form action="/memo/bin" method="post">
-		<button id="bin"><i class="fa-solid fa-trash"></i></button>
+		<button id="bin2"><i class="fa-solid fa-trash"></i></button>
 	  </form>
 	
 	  <form action="/addMemo">
