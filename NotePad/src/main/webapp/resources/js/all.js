@@ -1,24 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-  
+document.addEventListener("DOMContentLoaded", function() {
+  // Add tooltip for the addMemo button
   const addMemoButton = document.getElementById("addMemo");
-  addMemoButton.addEventListener("mouseenter", () => {
-    const tooltip = document.createElement("div");
-    tooltip.id = "tooltip";
-    tooltip.textContent = "메모 추가";
-    tooltip.style.position = "absolute";
-    tooltip.style.bottom = "90px";
-    tooltip.style.right = "20px";
-    tooltip.style.backgroundColor = "#333";
-    tooltip.style.color = "white";
-    tooltip.style.padding = "5px 10px";
-    tooltip.style.borderRadius = "5px";
-    tooltip.style.fontSize = "12px";
-    tooltip.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.2)";
-    document.body.appendChild(tooltip);
+  const addMemoTooltip = document.createElement("div");
+  addMemoTooltip.textContent = "메모 추가하기";
+  addMemoTooltip.id = "tooltip-addMemo";
+  document.body.appendChild(addMemoTooltip);
+
+  addMemoButton.addEventListener("mouseenter", function(event) {
+      const rect = addMemoButton.getBoundingClientRect();
+      addMemoTooltip.style.left = `${rect.left + window.scrollX}px`;
+      addMemoTooltip.style.top = `${rect.top + window.scrollY - addMemoTooltip.offsetHeight - 50}px`;
+      addMemoTooltip.style.display = "block";
   });
 
-  addMemoButton.addEventListener("mouseleave", () => {
-    const tooltip = document.getElementById("tooltip");
-    if (tooltip) tooltip.remove();
+  addMemoButton.addEventListener("mouseleave", function() {
+      addMemoTooltip.style.display = "none";
+  });
+
+  // Add tooltip for the bin2 button
+  const bin2Button = document.getElementById("bin2");
+  const bin2Tooltip = document.createElement("div");
+  bin2Tooltip.textContent = "휴지통 보기";
+  bin2Tooltip.id = "tooltip-bin";
+  document.body.appendChild(bin2Tooltip);
+
+  bin2Button.addEventListener("mouseenter", function(event) {
+      const rect = bin2Button.getBoundingClientRect();
+      bin2Tooltip.style.left = `${rect.left + window.scrollX}px`;
+      bin2Tooltip.style.top = `${rect.top + window.scrollY - bin2Tooltip.offsetHeight - 50}px`;
+      bin2Tooltip.style.display = "block";
+  });
+
+  bin2Button.addEventListener("mouseleave", function() {
+      bin2Tooltip.style.display = "none";
   });
 });

@@ -5,16 +5,14 @@ const updateBtn = document.querySelector("#updateBtn");
 const goBinBtn = document.querySelector("#goBinBtn");
 
 goMemoList.addEventListener("click", () => {
-
-	location.href = "/login";
+  location.href = "/login";
 });
 
 goBinBtn.addEventListener("click", () => {
-	
-	location.href = "/memo/gobin?memoNo=" + memoNo;
+  location.href = "/memo/gobin?memoNo=" + memoNo;
 });
 
 updateBtn.addEventListener("click", () => {
-	
-	location.href = "/memo/update?memoNo=" + memoNo;
+  location.href = "/memo/update?memoNo=" + memoNo;
 });
+
