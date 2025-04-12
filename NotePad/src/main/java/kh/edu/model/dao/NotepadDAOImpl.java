@@ -299,4 +299,30 @@ public class NotepadDAOImpl implements NotepadDao {
 
 		return result;
 	}
+
+	@Override
+	public int updateUser(Connection conn, String memberId, String memberPw, String memberName, int memberNo) throws Exception {
+
+		int result = 0;
+		
+		try {
+			
+			String SQL = prop.getProperty("updateUser");
+			
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1,memberId);
+			pstmt.setString(2,memberPw);
+			pstmt.setString(3,memberName);
+			pstmt.setInt(4, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }
