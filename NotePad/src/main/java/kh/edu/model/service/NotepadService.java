@@ -85,5 +85,14 @@ public interface NotepadService {
 	 */
 	int memoRollback(int memoNo) throws Exception;
 
+	/** 회원 정보 수정
+	 * @param memberId
+	 * @param memberPw
+	 * @param memberName
+	 * @param memberNo 
+	 * @return
+	 */
+	int updateUser(String memberId, String memberPw, String memberName, int memberNo) throws Exception;
+
 
 }

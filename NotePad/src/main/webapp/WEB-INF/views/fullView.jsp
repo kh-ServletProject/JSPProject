@@ -62,6 +62,9 @@
 			<div class="memberLogout">
 				<button id="logoutBtn">로그아웃</button>
 			</div>
+			<div>
+				<button id="updateUserInfo">회원 정보 수정</button>
+			</div>
 		</div>
 
 		<form action="/memo/bin" method="post">
@@ -88,5 +91,10 @@
 	
 	<script src="/resources/js/all.js"></script>
 	<script src="/resources/js/fullView.js"></script>
+	<script>
+		document.querySelector("#updateUserInfo").addEventListener("click", () => {
+		location.href ="/updateUserInfo";
+		});
+	</script>
 </body>
 </html>

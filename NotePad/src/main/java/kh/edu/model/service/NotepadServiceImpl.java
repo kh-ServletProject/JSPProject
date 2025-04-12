@@ -184,4 +184,22 @@ public class NotepadServiceImpl implements NotepadService {
 
 		return result;
 	}
+
+	@Override
+	public int updateUser(String memberId, String memberPw, String memberName, int memberNo) throws Exception {
+
+		Connection conn = getConnection();
+		
+		int result = dao.updateUser(conn, memberId, memberPw, memberName, memberNo);
+		
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
 }

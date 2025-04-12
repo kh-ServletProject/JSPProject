@@ -84,5 +84,12 @@
 		SET DELETED = 'n'
 		WHERE MEMO_NO = ?
 	</entry>
+	
+	<!-- 회원 정보 수정 -->
+	<entry key="updateUser">
+		UPDATE MEMBER
+		SET MEMBER_ID = ?, MEMBER_PW = ?, MEMBER_NAME = ?
+		WHERE MEMBER_NO = ?
+	</entry>
 
 </properties>
