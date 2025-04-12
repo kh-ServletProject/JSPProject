@@ -30,8 +30,8 @@ public class UpdateUser extends HttpServlet {
 			int result = service.updateUser(memberId, memberPw, memberName, loginMem.getMemberNo());
 			
 			if(result > 0) {
-				session.setAttribute("message","회원 정보 수정 성공!");
-				resp.sendRedirect("/login");
+				session.setAttribute("message","회원 정보 수정 성공! 다시 로그인 해 주세요.");
+				resp.sendRedirect("/");
 				
 				return;
 			} else {
