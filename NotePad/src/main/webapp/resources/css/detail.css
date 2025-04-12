@@ -1,0 +1,360 @@
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+li,
+button,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #f5f5dc; /* 베이지색 배경 */
+  color: #5c5c3d; /* 글씨 색상 */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #8b4513; /* 갈색 버튼 */
+  color: white; /* 버튼 내부 글씨 흰색 */
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #6b3510; /* hover 시 더 어두운 갈색 */
+}
+
+div {
+  max-width: 800px;
+  background-color: #fffaf0; /* 밝은 베이지색 */
+  border: 1px solid #d2b48c; /* 테두리 색상 */
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fdf5e6; /* 입력 필드 배경색 */
+}
+
+form textarea {
+  resize: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fffaf0; /* 테이블 배경색 */
+}
+
+table thead {
+  background-color: #8b4513; /* 갈색 헤더 */
+  color: white;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #d2b48c; /* 테두리 색상 */
+  writing-mode: horizontal-tb;
+  text-align: center;
+  vertical-align: middle;
+  border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+  background-color: #f5f5dc; /* 베이지색 짝수 행 */
+  border-collapse: collapse;
+}
+
+h1 {
+  color: #8b4513; /* 갈색 타이틀 */
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+#viewContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 600px;
+}
+
+#info {
+  flex: 1;
+  max-width: 30%;
+  background-color: #fffaf0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#search input {
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: 1px solid #d2b48c; /* 테두리 색상 */
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #fdf5e6; /* 입력 필드 배경색 */
+}
+
+#addMemo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #8b4513; 
+  color: white;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#addMemo:hover {
+  background-color: #6b3510; 
+}
+
+.memberLogout button {
+  background-color: #a0522d; 
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.5;
+  padding: 5px 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.memberLogout button:hover {
+  background-color: #5a2e1b; 
+}
+
+#signupBtn {
+  background-color: #a0522d; 
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#signupBtn:hover {
+  background-color: #5a2e1b; 
+}
+
+#buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+#loginBtn {
+  background-color: #8b4513; 
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#loginBtn:hover{
+  background-color: #6b3510;
+}
+
+#homeBtn {
+  background-color: #8b4513; 
+  color: white;
+}
+#homeBtn:hover{
+  background-color: #6b3510;
+}
+
+#submitBtn {
+  background-color: #8b4513; 
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20%;
+}
+
+
+#submitBtn:hover {
+  background-color: #6b3510; 
+}
+
+#bin2 {
+  position: absolute;
+  bottom: 20px;
+  right: 100px;
+  background-color: #a0522d; 
+  color: white;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#bin2:hover {
+  background-color: #5a2e1b; 
+}
+
+td a {
+  color: #d2691e; 
+  text-decoration: underline;
+}
+
+td a:hover {
+  color: #a0522d; 
+  text-decoration: none;
+}
+
+
+
+#logoutBtn {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+  display: inline-block; 
+  width: auto; 
+  height: auto; 
+  padding: 10px 20px; 
+  white-space: nowrap; 
+  text-align: center;
+}
+
+#tooltip-bin,
+#tooltip-addMemo {
+  position: absolute;
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: none; 
+  pointer-events: none; 
+  z-index: 1000;
+}
+
+#multiSelect,
+#multiBin {
+  padding: 15px 12px; 
+  margin: 10px 10px;
+}
+
+table th {
+  writing-mode: horizontal-tb; 
+  text-orientation: mixed; 
+  white-space: nowrap; 
+  text-align: center; 
+  vertical-align: middle; 
+  border-collapse: collapse;
+}
+
+/* 번호 헤더에만 특정 스타일 적용 */
+table th#numberHeader {
+  writing-mode: horizontal-tb; 
+  text-orientation: mixed; 
+  border-collapse: collapse;
+}
+
+table td input[type="checkbox"] {
+  margin: 0; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
+  border-collapse: collapse;
+}
+
+.chkTd{
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.chekedStatus{
+	justify-content: center;
+	align-items: center;
+}
+
+.signup{
+  
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  font-weight: bold;
+  font-size: 20px;
+}
+.error {
+  color: red;
+  font-size: 15px;
+  font-weight: normal;
+  margin-top: 15px;
+}
+
+#signupForm input,
+#signupForm textarea{
+  height: 50px;
+  padding: 10px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+#memoTitle{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#memoContent{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
