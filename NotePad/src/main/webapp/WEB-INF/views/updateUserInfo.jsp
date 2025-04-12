@@ -25,8 +25,8 @@
     <div id="updateForm" style="display: none;">
       <form action="/updateUser" method="post">
           <div>
-              아이디: <input type="text" name="memberId" value="${loginMem.memberId}" /><br>
-              이름: <input type="text" name="memberName" value="${loginMem.memberName}" /><br>
+              아이디: <input type="text" name="memberId" value="${loginMem.memberId}" style="margin-bottom: 10px;" /><br>
+              이름: <input type="text" name="memberName" value="${loginMem.memberName}" style="margin-bottom: 10px;" /><br>
               새 비밀번호: <input type="password" name="memberPw" placeholder="새 비밀번호 입력" /><br>
               <div style="text-align: right; border: none; box-shadow: none;">
               <button type="submit">수정 완료</button>
