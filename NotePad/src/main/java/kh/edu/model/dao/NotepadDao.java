@@ -30,5 +30,5 @@ public interface NotepadDao {
 
 	int memoRollback(Connection conn, int memoNo) throws Exception;
 
-	int updateUser(Connection conn, String memberId, String memberPw, String memberName, int memberNo) throws Exception;
+	int updateUser(Connection conn, String memberPw, String memberName, int memberNo) throws Exception;
 }

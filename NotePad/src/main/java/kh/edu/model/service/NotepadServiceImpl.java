@@ -186,11 +186,11 @@ public class NotepadServiceImpl implements NotepadService {
 	}
 
 	@Override
-	public int updateUser(String memberId, String memberPw, String memberName, int memberNo) throws Exception {
+	public int updateUser(String memberPw, String memberName, int memberNo) throws Exception {
 
 		Connection conn = getConnection();
 		
-		int result = dao.updateUser(conn, memberId, memberPw, memberName, memberNo);
+		int result = dao.updateUser(conn, memberPw, memberName, memberNo);
 		
 		if(result > 0) {
 			commit(conn);
