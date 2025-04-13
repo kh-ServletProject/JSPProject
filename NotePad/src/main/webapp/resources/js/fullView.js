@@ -45,12 +45,11 @@ logoutBtn.addEventListener("click", () => {
 });
 
 // 메모 모두 선택(체크박스 체크)
-selectAllMemo.addEventListener("click", () => {
-	isVisible = !isVisible;
-	checkAll.checked = isVisible;
+checkAll.addEventListener("change", () => {
+	const isChecked = checkAll.checked;
 
 	chekedStatus.forEach(chk => {
-		chk.checked = isVisible;
+		chk.checked = isChecked;
 	});
 
 });
