@@ -63,7 +63,7 @@
 				<button id="logoutBtn">로그아웃</button>
 			</div>
 			<div>
-				<button id="updateUserInfo">회원 정보 수정</button>
+				<button id="updateUserInfo">회원정보수정</button>
 			</div>
 		</div>
 
@@ -75,11 +75,6 @@
 		 	<button id="addMemo"><i class="fa-regular fa-square-plus"></i></button>
 	   	</form>
 
-		<form action="/addMemo">
-			<button id="addMemo">
-				<i class="fa-regular fa-square-plus"></i>
-			</button>
-		</form>
 	</div>
 
 	<c:if test="${not empty sessionScope.message}">
