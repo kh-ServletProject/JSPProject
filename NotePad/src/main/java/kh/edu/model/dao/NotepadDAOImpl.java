@@ -301,7 +301,7 @@ public class NotepadDAOImpl implements NotepadDao {
 	}
 
 	@Override
-	public int updateUser(Connection conn, String memberId, String memberPw, String memberName, int memberNo) throws Exception {
+	public int updateUser(Connection conn, String memberPw, String memberName, int memberNo) throws Exception {
 
 		int result = 0;
 		
@@ -311,10 +311,9 @@ public class NotepadDAOImpl implements NotepadDao {
 			
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setString(1,memberId);
-			pstmt.setString(2,memberPw);
-			pstmt.setString(3,memberName);
-			pstmt.setInt(4, memberNo);
+			pstmt.setString(1,memberPw);
+			pstmt.setString(2,memberName);
+			pstmt.setInt(3, memberNo);
 			
 			result = pstmt.executeUpdate();
 			

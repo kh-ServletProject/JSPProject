@@ -92,7 +92,7 @@ public interface NotepadService {
 	 * @param memberNo 
 	 * @return
 	 */
-	int updateUser(String memberId, String memberPw, String memberName, int memberNo) throws Exception;
+	int updateUser(String memberPw, String memberName, int memberNo) throws Exception;
 
 
 }

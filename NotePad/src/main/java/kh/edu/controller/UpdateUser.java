@@ -19,7 +19,6 @@ public class UpdateUser extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		try {
-			String memberId = req.getParameter("memberId");
 			String memberPw = req.getParameter("memberPw");
 			String memberName = req.getParameter("memberName");
 			
@@ -27,7 +26,7 @@ public class UpdateUser extends HttpServlet {
 			HttpSession session = req.getSession();
 			Member loginMem = (Member) session.getAttribute("member");
 			
-			int result = service.updateUser(memberId, memberPw, memberName, loginMem.getMemberNo());
+			int result = service.updateUser(memberPw, memberName, loginMem.getMemberNo());
 			
 			if(result > 0) {
 				session.setAttribute("message","회원 정보 수정 성공! 다시 로그인 해 주세요.");
