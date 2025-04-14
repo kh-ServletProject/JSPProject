@@ -7,17 +7,26 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kh.edu.model.service.NotepadService;
+import kh.edu.model.service.NotepadServiceImpl;
 
-@WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
-
+@WebServlet("/updateUserInfo")
+public class UpdateUserInfoServlet extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		req.getSession().invalidate();
+		try {
+					
+			req.getRequestDispatcher("/WEB-INF/views/updateUserInfo.jsp").forward(req, resp);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		req.getSession().setAttribute("message", "로그아웃 되었습니다.");		
 		
-		resp.sendRedirect("/");
 	}
+	
+	
+
 }

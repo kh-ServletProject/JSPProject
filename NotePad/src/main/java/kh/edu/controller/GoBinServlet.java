@@ -18,8 +18,6 @@ public class GoBinServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		try {
-
-			System.out.println("================test1");
 			// 전달받은 파라미터 얻어오기
 			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
 
@@ -29,9 +27,8 @@ public class GoBinServlet extends HttpServlet {
 			System.out.println("result : " + result);
 			// session scope 객체 얻어오기
 			HttpSession session = req.getSession();
-			System.out.println("================test2");
+
 			if (result > 0) {
-				System.out.println("================test3");
 				session.setAttribute("message", "휴지통으로 이동하였습니다!");
 				resp.sendRedirect("/login");
 
@@ -44,7 +41,5 @@ public class GoBinServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

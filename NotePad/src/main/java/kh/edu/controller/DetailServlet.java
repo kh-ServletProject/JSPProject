@@ -19,7 +19,6 @@ public class DetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		try {
-
 			NotepadService service = new NotepadServiceImpl();
 
 			int memoNo = Integer.parseInt(req.getParameter("memoNo"));
@@ -32,7 +31,6 @@ public class DetailServlet extends HttpServlet {
 
 				resp.sendRedirect("/");
 				return;
-
 			}
 
 			req.setAttribute("memo", memo);
@@ -43,7 +41,5 @@ public class DetailServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
